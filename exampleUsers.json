@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "parner_user_id": "fb1",
+    "name": "Jimothy Hawkins",
+    "email": "jhawk@gmail.com",
+    "goal" : "Run 1 Mile"
+  },
+  {
+    "id": "2",
+    "parner_user_id": "fb2",
+    "name": "Bobbert Franklin",
+    "email": "bobblin@gmail.com",
+    "goal" : "10 push-ups"
+  }
+]

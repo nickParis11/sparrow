@@ -18,9 +18,12 @@
   "homepage": "https://github.com/Ankit09osr/sparrow#readme",
   "dependencies": {
     "angular": "^1.6.5",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "fs": "0.0.1-security",
     "mongoose": "^4.11.7",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "path": "^0.12.7"
   }
 }

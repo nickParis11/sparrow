@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "user_id": "1",
+    "workout_id": "1",
+    "type": "Push-ups",
+    "set_number": "5",
+    "repetition_number": "3",
+    "set_time": "3",
+    "rest_time": "2",
+    "timed": "true",
+    "name": "Push-ups",
+    "description": "A simple upper body exercise",
+    "date": "01/12/12"
+  },
+  {
+    "id": "2",
+    "user_id": "2",
+    "workout_id": "2",
+    "type": "Rowing",
+    "set_number": "3",
+    "repetition_number": "1",
+    "set_time": "3",
+    "rest_time": "1",
+    "timed": "true",
+    "name": "10 minute row",
+    "description": "Row for 10 minutes",
+    "date": "01/12/12"
+  }
+]
