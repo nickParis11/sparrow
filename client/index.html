@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>Sparrow's App</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
   </head>
   <body ng-app="sparrow">
     <a ui-sref="createWorkout">Create Workout</a>
@@ -13,6 +15,7 @@
     <ui-view></ui-view>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="components/createWorkout.js"></script>
+    <script type="text/javascript" src="components/timed.js"></script>
     <script type="text/javascript" src="components/goals.js"></script>
     <script type="text/javascript" src="components/workout.js"></script>
   </body>
