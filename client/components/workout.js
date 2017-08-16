@@ -1,5 +1,5 @@
 angular.module('sparrow')
-.controller('WorkoutCtrl', function() {
+.controller('WorkoutCtrl', function WorkoutCtrl() {
 
 })
 .component('workout', {

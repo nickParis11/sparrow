@@ -2,18 +2,28 @@ angular.module('sparrow',['ui.router'])
 .config(function($stateProvider) {
   var states = [
     {
-      name:'createWorkout',
-      url:'/createWorkout',
+      name: 'createWorkout',
+      url: '/createWorkout',
       component: 'createWorkout'
     },
     {
-      name:'workout',
-      url:'/workout',
+      name: 'createWorkout.timed',
+      url: '/timed',
+      component: 'timed'
+    },
+    {
+      name: 'createWorkout.untimed',
+      url: '/untimed',
+      component: 'untimed'
+    },
+    {
+      name: 'workout',
+      url: '/workout',
       component: 'workout'
     },
     {
       name:'goals',
-      url:'/goals',
+      url: '/goals',
       component: 'goals'
     }
   ];
