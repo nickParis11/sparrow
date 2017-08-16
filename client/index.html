@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Sparrow's App</title>
-</head>
-<body>
-  <h1>Hello World!!</h1>
-</body>
+  <head>
+    <title>Sparrow's App</title>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+  </head>
+  <body ng-app="sparrow">
+    <a ui-sref="createWorkout">Create Workout</a>
+    <a ui-sref="workout">Workout</a>
+    <a ui-sref="goals">Goals</a>
+    <h1>Hello Sparrow!!</h1>
+    <ui-view></ui-view>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="components/createWorkout.js"></script>
+    <script type="text/javascript" src="components/goals.js"></script>
+    <script type="text/javascript" src="components/workout.js"></script>
+  </body>
 </html>
