@@ -3,8 +3,18 @@ angular.module('sparrow',['ui.router'])
   var states = [
     {
       name:'createWorkout',
-      url:'/goalsWorkout',
+      url:'/createWorkout',
       component: 'createWorkout'
+    },
+    {
+      name:'workout',
+      url:'/workout',
+      component: 'workout'
+    },
+    {
+      name:'goals',
+      url:'/goals',
+      component: 'goals'
     }
   ];
    // Loop over the state definitions and register them
