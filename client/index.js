@@ -21,7 +21,6 @@ angular.module('sparrow',['ui.router'])
   states.forEach(function(state) {
     $stateProvider.state(state);
   });
-
 });
 
 
