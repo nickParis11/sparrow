@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const model = require('../db/mongoose-schemas.js')
 const app = express();
-
+var logger = require('morgan');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client')));
 
+app.use(logger('dev'));
 
 //HANDLE GET REQUESTS
 
@@ -90,4 +91,6 @@ app.post('/histories', function(req, res) {
   res.send('Posted History');
 });
 
-app.listen(3000);
+app.listen(3000, function() {
+  console.log('connected to http://localhost:3000');
+});
