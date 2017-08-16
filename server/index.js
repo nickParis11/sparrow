@@ -10,9 +10,9 @@ mongoose.connect('mongodb://localhost/workout', {
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 //CREATING THE SCHEMA
 
@@ -140,5 +140,3 @@ app.post('/histories', function(req, res) {
 });
 
 app.listen(3000);
-
-
