@@ -1,19 +1,21 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/workout', {
+const mongodbURI = 'mongodb://sparrow:sparrow123@ds137261.mlab.com:37261/workout'
+
+mongoose.connect(mongodbURI, {
   useUrlClient: 'true'
 });
 
 // Error Handling
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
 //CREATING THE SCHEMA
 
-var userSchema = new Schema({
+const userSchema = new Schema({
   id: String,
   partner_user_id: String,
   name: String,
@@ -21,9 +23,9 @@ var userSchema = new Schema({
   goal: String
 });
 
-var User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
-var templateSchema = new Schema({
+const templateSchema = new Schema({
   id: String,
   user_id: String,
   date: String,
@@ -31,9 +33,9 @@ var templateSchema = new Schema({
   description: String
 });
 
-var Template = mongoose.model('Template', templateSchema);
+const Template = mongoose.model('Template', templateSchema);
 
-var activitySchema = new Schema({
+const activitySchema = new Schema({
   id: String,
   user_id: String,
   workout_id: String,
@@ -48,9 +50,9 @@ var activitySchema = new Schema({
   date: Date
 });
 
-var Activity = mongoose.model('Activity', activitySchema);
+const Activity = mongoose.model('Activity', activitySchema);
 
-var historySchema = new Schema({
+const historySchema = new Schema({
   id: String,
   completed: Boolean,
   user_id: String,
@@ -58,7 +60,7 @@ var historySchema = new Schema({
   date: Date
 });
 
-var History = mongoose.model('History', historySchema);
+const History = mongoose.model('History', historySchema);
 
 
 module.exports = {
