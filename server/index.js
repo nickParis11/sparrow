@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const path = require('path');
-const model = require('../db/mongoose-schemas.js')
+const { User, Template, Activity, History } = require('../db/mongoose-schemas.js')
 const app = express();
 const logger = require('morgan');
 const PORT = 3000;
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/users', function(req, res) {
   var users = [];
-  model.User.find({}, function(err, user) {
+  User.find({}, function(err, user) {
     if (err) console.log(err);
     users.push(user);
   })
@@ -31,7 +31,7 @@ app.get('/users', function(req, res) {
 app.get('/templates', function(req, res) {
   var templates = [];
 
-  model.Template.find({}, function(err, template) {
+  Template.find({}, function(err, template) {
     if (err) console.log(err);
     templates.push(template);
   })
@@ -44,7 +44,7 @@ app.get('/templates', function(req, res) {
 app.get('/activities', function(req, res) {
   var activities = [];
 
-  model.Activity.find({}, function(err, activity) {
+  Activity.find({}, function(err, activity) {
     if (err) console.log(err);
     activities.push(activity);
   })
@@ -57,7 +57,7 @@ app.get('/activities', function(req, res) {
 app.get('/histories', function(req, res) {
   var histories = [];
 
-  model.History.find({}, function(err, history) {
+  History.find({}, function(err, history) {
     if (err) console.log(err);
     Histories.push(history);
   })
@@ -71,25 +71,25 @@ app.get('/histories', function(req, res) {
 
 app.post('/users', function(req, res) {
   console.log(req.body);
-  model.User.create(req.body);
+  User.create(req.body);
   res.send('Posted User');
 });
 
 app.post('/templates', function(req, res) {
   console.log(req.body);
-  model.Template.create(req.body);
+  Template.create(req.body);
   res.send('Posted Template');
 });
 
 app.post('/activities', function(req, res) {
   console.log(req.body);
-  model.Activity.create(req.body);
+  Activity.create(req.body);
   res.send('Posted Activity');
 });
 
 app.post('/histories', function(req, res) {
   console.log(req.body);
-  model.History.create(req.body);
+  History.create(req.body);
   res.send('Posted History');
 });
 

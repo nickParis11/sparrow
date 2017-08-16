@@ -4,9 +4,7 @@ mongoose.Promise = require('bluebird');
 
 const mongodbURI = 'mongodb://sparrow:sparrow123@ds137261.mlab.com:37261/workout'
 
-mongoose.connect(mongodbURI, {
-  useUrlClient: 'true'
-});
+mongoose.connect(mongodbURI, { useMongoClient: true });
 
 // Error Handling
 const db = mongoose.connection;
