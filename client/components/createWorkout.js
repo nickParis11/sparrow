@@ -6,6 +6,3 @@ angular.module('sparrow')
   controller: 'CreateWorkoutCtrl',
   templateUrl: 'templates/createWorkout.html'
 });
-
-
-
