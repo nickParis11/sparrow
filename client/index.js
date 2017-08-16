@@ -12,6 +12,11 @@ angular.module('sparrow',['ui.router'])
       component: 'timed'
     },
     {
+      name: 'createWorkout.untimed',
+      url: '/untimed',
+      component: 'untimed'
+    },
+    {
       name: 'workout',
       url: '/workout',
       component: 'workout'
