@@ -61,22 +61,22 @@ var model = require('./db/mongoose-schemas.js')
 // var History = mongoose.model('History', historySchema);
 
 //MAKE SURE TABLES ARE CLEAR
-models.User.remove({}, function(err) {
+model.User.remove({}, function(err) {
   if (err) console.log(err);
   console.log('User Table Cleared');
 })
 
-Template.remove({}, function(err) {
+model.Template.remove({}, function(err) {
   if (err) console.log(err);
   console.log('Template Table Cleared');
 })
 
-Activity.remove({}, function(err) {
+model.Activity.remove({}, function(err) {
   if (err) console.log(err);
   console.log('Activity Table Cleared');
 })
 
-History.remove({}, function(err) {
+model.History.remove({}, function(err) {
   if (err) console.log(err);
   console.log('History Table Cleared');
 })
@@ -84,16 +84,16 @@ History.remove({}, function(err) {
 //ADD DATA
 
 userData.forEach(function(element) {
-  User.create(element);
+  model.User.create(element);
 });
 templateData.forEach(function(element) {
-  Template.create(element);
+  model.Template.create(element);
 });
 activityData.forEach(function(element) {
-  Activity.create(element);
+  model.Activity.create(element);
 });
 historyData.forEach(function(element) {
-  History.create(element);
+  model.History.create(element);
 });
 
 // fs.readFile('exampleUsers.json', 'utf8', (err, data) => {
