@@ -1,11 +1,18 @@
 var mongoose = require('mongoose');
-
-mongoose.Promise = require('bluebird');
 var Schema = mongoose.Schema;
+mongoose.Promise = require('bluebird');
 
 mongoose.connect('mongodb://localhost/workout', {
   useUrlClient: 'true'
 });
+
+// Error Handling
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('mongo connection successful --------------=');
+});
+
 
 //CREATING THE SCHEMA
 
