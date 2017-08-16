@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const path = require('path');
-const models = require('../db/mongoose-schemas.js')
+const model = require('../db/mongoose-schemas.js')
 const app = express();
 
 
@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/users', function(req, res) {
   var users = [];
-  models.User.find({}, function(err, user) {
+  model.User.find({}, function(err, user) {
     if (err) console.log(err);
     users.push(user);
   })
@@ -28,7 +28,7 @@ app.get('/users', function(req, res) {
 app.get('/templates', function(req, res) {
   var templates = [];
 
-  models.Template.find({}, function(err, template) {
+  model.Template.find({}, function(err, template) {
     if (err) console.log(err);
     templates.push(template);
   })
@@ -41,7 +41,7 @@ app.get('/templates', function(req, res) {
 app.get('/activities', function(req, res) {
   var activities = [];
 
-  models.Activity.find({}, function(err, activity) {
+  model.Activity.find({}, function(err, activity) {
     if (err) console.log(err);
     activities.push(activity);
   })
@@ -54,7 +54,7 @@ app.get('/activities', function(req, res) {
 app.get('/histories', function(req, res) {
   var histories = [];
 
-  models.History.find({}, function(err, history) {
+  model.History.find({}, function(err, history) {
     if (err) console.log(err);
     Histories.push(history);
   })
@@ -68,25 +68,25 @@ app.get('/histories', function(req, res) {
 
 app.post('/users', function(req, res) {
   console.log(req.body);
-  models.User.create(req.body);
+  model.User.create(req.body);
   res.send('Posted User');
 });
 
 app.post('/templates', function(req, res) {
   console.log(req.body);
-  models.Template.create(req.body);
+  model.Template.create(req.body);
   res.send('Posted Template');
 });
 
 app.post('/activities', function(req, res) {
   console.log(req.body);
-  models.Activity.create(req.body);
+  model.Activity.create(req.body);
   res.send('Posted Activity');
 });
 
 app.post('/histories', function(req, res) {
   console.log(req.body);
-  models.History.create(req.body);
+  model.History.create(req.body);
   res.send('Posted History');
 });
 
