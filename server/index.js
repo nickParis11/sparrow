@@ -4,7 +4,10 @@ const path = require('path');
 const { User, Template, Activity, History } = require('../db/mongoose-schemas.js')
 const app = express();
 const logger = require('morgan');
-const PORT = 3000;
+
+
+app.set('port', (process.env.PORT || 3000));
+const PORT = app.get('port');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -94,5 +97,5 @@ app.post('/histories', function(req, res) {
 });
 
 app.listen(PORT, function() {
-  console.log(`connected to http://localhost:${PORT}`);
+  console.log(`Node app is running on http://localhost:${PORT}`);
 });
