@@ -1,9 +1,8 @@
-var express = require('express')
-var bodyParser = require('body-parser');
-var path = require('path');
-var app = express();
-
-
+const express = require('express')
+const bodyParser = require('body-parser');
+const path = require('path');
+const models = require('../db/mongoose-schemas.js')
+const app = express();
 
 
 app.use(bodyParser.json());
@@ -11,53 +10,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client')));
 
-//CREATING THE SCHEMA
-
-var userSchema = new Schema({
-  id: String,
-  partner_user_id: String,
-  name: String,
-  email: String,
-  goal: String
-});
-
-var templateSchema = new Schema({
-  id: String,
-  user_id: String,
-  date: String,
-  name: String,
-  description: String
-});
-
-var activitySchema = new Schema({
-  id: String,
-  user_id: String,
-  workout_id: String,
-  type: String,
-  set_number: Number,
-  repetition_number: Number,
-  set_time: Number,
-  rest_time: Number,
-  timed: Boolean,
-  name: String,
-  description: String,
-  date: Date
-});
-
-var historySchema = new Schema({
-  id: String,
-  completed: Boolean,
-  user_id: String,
-  workout_id: String,
-  date: Date
-});
 
 //HANDLE GET REQUESTS
 
 app.get('/users', function(req, res) {
   var users = [];
-  var User = mongoose.model('User', userSchema);
-  User.find({}, function(err, user) {
+  models.User.find({}, function(err, user) {
     if (err) console.log(err);
     users.push(user);
   })
@@ -69,8 +27,8 @@ app.get('/users', function(req, res) {
 
 app.get('/templates', function(req, res) {
   var templates = [];
-  var Template = mongoose.model('Template', templateSchema);
-  Template.find({}, function(err, template) {
+
+  models.Template.find({}, function(err, template) {
     if (err) console.log(err);
     templates.push(template);
   })
@@ -82,8 +40,8 @@ app.get('/templates', function(req, res) {
 
 app.get('/activities', function(req, res) {
   var activities = [];
-  var Activity = mongoose.model('Activity', activitySchema);
-  Activity.find({}, function(err, activity) {
+
+  models.Activity.find({}, function(err, activity) {
     if (err) console.log(err);
     activities.push(activity);
   })
@@ -95,8 +53,8 @@ app.get('/activities', function(req, res) {
 
 app.get('/histories', function(req, res) {
   var histories = [];
-  var history = mongoose.model('History', historySchema);
-  History.find({}, function(err, history) {
+
+  models.History.find({}, function(err, history) {
     if (err) console.log(err);
     Histories.push(history);
   })
@@ -109,30 +67,26 @@ app.get('/histories', function(req, res) {
 //HANDLE POST REQUESTS
 
 app.post('/users', function(req, res) {
-  var User = mongoose.model('User', userSchema);
   console.log(req.body);
-  User.create(req.body);
+  models.User.create(req.body);
   res.send('Posted User');
 });
 
 app.post('/templates', function(req, res) {
-  var Template = mongoose.model('Template', templateSchema);
   console.log(req.body);
-  Template.create(req.body);
+  models.Template.create(req.body);
   res.send('Posted Template');
 });
 
 app.post('/activities', function(req, res) {
-  var Activity = mongoose.model('Activity', activitySchema);
   console.log(req.body);
-  Activity.create(req.body);
+  models.Activity.create(req.body);
   res.send('Posted Activity');
 });
 
 app.post('/histories', function(req, res) {
-  var History = mongoose.model('History', historySchema);
   console.log(req.body);
-  History.create(req.body);
+  models.History.create(req.body);
   res.send('Posted History');
 });
 

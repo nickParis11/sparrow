@@ -54,4 +54,12 @@ var historySchema = new Schema({
   date: Date
 });
 
-var history = mongoose.model('History', historySchema);
+var History = mongoose.model('History', historySchema);
+
+
+module.exports = {
+  User: User,
+  Template: Template,
+  Activity: Activity,
+  History: History
+}
