@@ -4,7 +4,7 @@ angular.module('sparrow')
 //   //console.log('in goal controller and goals from the service = ',goalService.getAllGoals())
 // })
 .component('goal', {
-  bindings : { resolveGoalItem :'<'}, //goal
+  bindings : { resolveGoalItem :'<'}, //goal'
   //controller: 'GoalCtrl',
   templateUrl: 'templates/goal.html'
 });

@@ -33,7 +33,3 @@ angular.module('sparrow',['ui.router'])
   });
 });
 
-
-
-
-

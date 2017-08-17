@@ -18,7 +18,7 @@ var fakeJSON_goals= [
   completionRate : 8,
   workoutPace : 17,
   workoutPosition : 'behind',
-  MotivationPhrase:"you should move this ass while it still can get up of that chair"
+  MotivationPhrase:"you should move this a** while it still can get up of that chair"
 },
 {id:1,
   number:6,
@@ -26,7 +26,7 @@ var fakeJSON_goals= [
   startDate:'08-15-2017',// Nich H do you think this date format can be easily retrieved from the db ?
   endDate : '11-15-2019', // Nich H do you think this date format can be easily retrieved from the db ?
   name : 'bare minimum monthly exercize',
-  alertByEmail : false,
+  alertByEmail : true,
   completionRate : 75,
   workoutPace : 6,
   workoutPosition : 'ahead of',
