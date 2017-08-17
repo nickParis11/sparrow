@@ -3,8 +3,8 @@
     "id": "1",
     "user_id": "1",
     "date": "01/11/13",
-    "name": "Jimothy Hawkins",
-    "description" : "Run the best mile"
+    "name": "Jimothy Hawkins Ultimate Push Up",
+    "description" : "The Ultimate Single Push Up Workout"
   },
   {
     "id": "2",
@@ -12,5 +12,12 @@
     "date": "01/12/13",
     "name": "Bobberts big workout",
     "description" : "10 push-ups"
+  },
+  {
+    "id": "3",
+    "user_id": "1",
+    "date": "01/11/13",
+    "name": "Runs and Things",
+    "description" : "Run the best mile and stuff"
   }
 ]

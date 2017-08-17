@@ -62,7 +62,7 @@ app.get('/histories', function(req, res) {
 
   History.find({}, function(err, history) {
     if (err) console.log(err);
-    Histories.push(history);
+    histories.push(history);
   })
   .then(function() {
     console.log(histories);
@@ -95,6 +95,69 @@ app.post('/histories', function(req, res) {
   History.create(req.body);
   res.send('Posted History');
 });
+
+//HANDLES SPECIFIC QUERIES
+
+//GET USER BY USER_ID
+app.get('/users/:id', function(req, res) {
+  var ident = req.params.id;
+  console.log(ident);
+  var user = null;
+  User.find({id: ident }, function(err, target) {
+    if (err) console.log(err);
+    user = target;
+  })
+  .then(function() {
+    console.log('user: ', user);
+    res.send(user);
+  });
+});
+
+//GET TEMPLATES BY USER_ID
+app.get('/templates/:user', function(req, res) {
+  var user = req.params.user;
+  var templates = [];
+
+  Template.find({user_id: user}, function(err, template) {
+    if (err) console.log(err);
+    templates.push(template);
+  })
+  .then(function() {
+    console.log(templates);
+    res.send(templates);
+  });
+});
+
+//GET HISTORIES BY USER_ID
+app.get('/activities/:user', function(req, res) {
+  var user = req.params.user;
+  var activities = [];
+
+  Activity.find({user_id: user}, function(err, activity) {
+    if (err) console.log(err);
+    activities.push(activity);
+  })
+  .then(function() {
+    console.log(activities);
+    res.send(activities);
+  });
+});
+
+app.get('/histories/:user', function(req, res) {
+  var user = req.params.user;
+  var histories = [];
+
+  History.find({user_id: user}, function(err, history) {
+    if (err) console.log(err);
+    histories.push(history);
+  })
+  .then(function() {
+    console.log(histories);
+    res.send(histories);
+  });
+});
+
+//END HANDLE SPECIFIC QUERIES
 
 app.listen(PORT, function() {
   console.log(`Node app is running on http://localhost:${PORT}`);
