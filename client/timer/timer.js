@@ -1,32 +1,39 @@
-var clock = new FlipClock($('.your-clock'), {
+var clockMaker = function(name, time //, next
+  ) {
+  var clock = new FlipClock($('.your-clock'), {
   clockFace: 'MinuteCounter',
   autoStart: false,
   countdown: true,
 
-  onStart: function() {
-    console.log("function loads when the clock starts")
+  callbacks: {
+    start: function() {
+      console.log('clock has started');
+    },
+    stop: function() {
+      //Maybe add a next feature here
+      console.log('clock has stopped')
+    }
   },
+
 
   //CUSTOM CHECK VALUES (NOT KEYWORDS)
   startVal: false,
   timeSet: false
+  //next: The next excercise or break
 });
 
-
-//START AND STOP THE TIMER
-$(".timer").click(function() {
-
-  //SET TIME FOR COUNTDOWN
-  if (!clock.timeSet) {
-    var time = $(".settime").val();
-    if (Number.isInteger(Number(time)) && Number(time) > 0) {
+if (Number.isInteger(Number(time)) && Number(time) > 0) {
       clock.timeSet = true;
       clock.setTime(Number(time));
     } else {
       alert("Insert a number");
     }
-  } else {
-    console.log('in click event');
+
+$(".clockname").text(name);
+
+//START AND STOP THE TIMER
+$(".timer").click(function() {
+  if (clock.timeSet) {
     if (clock.startVal) {
       $(".timer").text("Start");
       clock.stop();
@@ -39,6 +46,9 @@ $(".timer").click(function() {
   }
 
 });
+};
 
+clockMaker("excercise", 20);
 
+//Since the clock can fire a callback when it stops, we could potentially change that callback to call the next exercise or rest
 
