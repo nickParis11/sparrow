@@ -17,7 +17,9 @@ angular.module('sparrow')
 
     $http.post(url, data)
     .then( function (res) {
-      callback(res.data);
+      if(callback){
+        callback(res.data);
+      }
     })
     .catch( function (res) {
       console.log('POST Error Occured :', res);

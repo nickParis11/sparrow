@@ -39,8 +39,8 @@ angular.module('sparrow',['ui.router'])
       parent:'goals',
       component : 'goal',
       resolve : {
-        resolveGoalItem : function (goalService,$transition$){
-          var goalDetailAfterUSerClick= goalService.getGoal($transition$.params().goalID)
+        resolveGoalItem : function (goalService,$transition$) {
+          var goalDetailAfterUSerClick= goalService.getGoal($transition$.params().goalID);
           console.log('in resolve goal, goalDetailAfterUSerClick = '+JSON.stringify(goalDetailAfterUSerClick));
           return goalDetailAfterUSerClick;
         }
