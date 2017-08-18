@@ -1,10 +1,14 @@
 angular.module('sparrow')
 .controller('TimedCtrl', function() {
+
   //data is the information send when a template is added.
   this.data= {};
+
   this.userId = 'xyz';
+
   //workout contain template created by user.
   this.workout = [];
+
   //addWorkout() create a template of named workout
   this.addWorkout = function() {
     var obj = {};
