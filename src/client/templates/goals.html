@@ -1,0 +1,18 @@
+<h1> All Your active Goals ! </h1>
+
+<!-- <a href="lend.html"> Lend a cat </a>
+ -->
+ <a ui-sref="addGoal">add a goal ui-router link</a>
+    <ui-view></ui-view>
+
+ <ul >
+    <li> <h5> hereafter should be my ng-repeat result </h5></li>
+    <li ng-repeat="goal in $ctrl.resolveGoal">
+      <a ui-sref="goal({goalID:goal.id})">
+      {{goal.name}}
+      </a>
+    </li>
+  </ul>
+
+
+

@@ -1,0 +1,38 @@
+<h3>Timed component</h3>
+  <h3>Add Template</h3>
+    <div>
+      Enter Template Name : <input type="text" ng-model="$ctrl.templateName" placeholder="Enter Exercise Name"/>
+    </div>
+  <h3>Add Exercise</h3>
+    <div>
+      Exercise : <input type="text" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
+    </div>
+    <div>
+      Duration :
+      <input type="text" ng-model="$ctrl.minutes" placeholder="Enter Minutes" />
+      <input type="text" ng-model="$ctrl.seconds" placeholder="Enter Seconds" />
+    </div>
+    <br/>
+    <button type="button" ng-click="$ctrl.addWorkout()">Add Exercise</button>
+  <br/>
+  <br/>
+  <div>
+
+  <h3>Your Template</h3>
+  <button type="button" ng-click="$ctrl.sendTemplate()">Add Template</button>
+  <table class="col-md-4">
+    <tr>
+      <th>Exercise Name
+      </th>
+      <th>Time(sec)
+      </th>
+    </tr>
+    <tr ng-repeat="entry in $ctrl.workout">
+      <td>{{entry.activity}}
+      </td>
+      <td>{{entry.duration}}
+      </td>
+    </tr>
+  </table>
+  <br/>
+</div>
