@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,10 +28,8 @@
     "fs": "0.0.1-security",
     "mongoose": "^4.11.7",
     "morgan": "^1.8.2",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
     "dotenv": "^4.0.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7"
   }
 }
