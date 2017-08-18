@@ -4,9 +4,9 @@ const path = require('path');
 const { User, Template, Activity, History } = require('../db/mongoose-schemas.js')
 const app = express();
 const logger = require('morgan');
-const cors = require('cors');
+const cors = require('cors'); // allow cors headers
 const jwt = require('express-jwt');
-const { secret, audience } = require('./secret/jwt');
+require('dotenv').config(); // allows you to use .env file
 
 app.use(cors());
 
@@ -22,8 +22,9 @@ app.use('/',express.static(path.join(__dirname, '../client')));
 // AUTH0
 app.use('/login', express.static(path.join(__dirname, '../src')));
 
+
 //HANDLE GET REQUESTS
-const authCheck = jwt({ secret, audience, credentialsRequired: true });
+const authCheck = jwt({ secret: process.env.SECRET, audience: process.env.AUDIENCE, credentialsRequired: true });
 // SET UP A PUBLIC AND PRIVATE ENDPOINT
 app.get('/api/public', (req, res) => {
   console.log('hi from /api/public')
