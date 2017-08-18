@@ -1,6 +1,7 @@
 angular.module('sparrow')
 .controller('UnTimedCtrl', function() {
   this.workout = [];
+
   this.addWorkout = function() {
     var obj = {};
     obj.activity = this.activity;
