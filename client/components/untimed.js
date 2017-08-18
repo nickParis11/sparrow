@@ -8,6 +8,10 @@ angular.module('sparrow')
     obj.reps = this.reps;
     this.workout.push(obj);
   };
+
+  this.addTemplate = function() {
+    console.log('Send present workout to the database via http services',this.workout);
+  };
 })
 .component('untimed', {
   controller: 'UnTimedCtrl',
