@@ -29,29 +29,12 @@ const User = mongoose.model('User', userSchema);
 const templateSchema = new Schema({
   id: String,
   user_id: String,
-  date: String,
   name: String,
-  description: String
+  timed: Boolean,
+  date: String,
 });
 
 const Template = mongoose.model('Template', templateSchema);
-
-const activitySchema = new Schema({
-  id: String,
-  user_id: String,
-  workout_id: String,
-  type: String,
-  set_number: Number,
-  repetition_number: Number,
-  set_time: Number,
-  rest_time: Number,
-  timed: Boolean,
-  name: String,
-  description: String,
-  date: Date
-});
-
-const Activity = mongoose.model('Activity', activitySchema);
 
 const historySchema = new Schema({
   id: String,
@@ -63,10 +46,21 @@ const historySchema = new Schema({
 
 const History = mongoose.model('History', historySchema);
 
+const goalSchema = new Schema ({
+  id: String,
+  user_id: String,
+  number: Number,
+  timeFrame: String,
+  creationDate: Date,
+  name: String,
+  emailAlert: Boolean
+})
+
+const Goal = mongoose.model('Goal', goalSchema);
 
 module.exports = {
   User: User,
   Template: Template,
-  Activity: Activity,
-  History: History
+  History: History,
+  Goal: Goal
 }
