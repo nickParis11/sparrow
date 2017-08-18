@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const path = require('path');
-const { User, Template, History, Goal } = require('../db/mongoose-schemas.js')
+const { User, Template, History, Goal } = require('../db/mongoose-schemas.js');
 const app = express();
 const logger = require('morgan');
 const cors = require('cors'); // allow cors headers
@@ -18,11 +18,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/',express.static(path.join(__dirname, '../client')));
+// app.use('/',express.static(path.join(__dirname, '../client')));
 
 // AUTH0
-app.use('/login', express.static(path.join(__dirname, '../src')));
+app.use('/', express.static(path.join(__dirname, '../src')));
+app.use('/application', express.static(path.join(__dirname, '../client')));
 
+app.get('/api/get/application', (req, res) => {
+  console.log('We have met the application.');
+  // res.writeHead(301);
+  res.redirect('https://www.google.com/');
+  // res.render('/../client/index');
+});
 
 //HANDLE GET REQUESTS
 const authCheck = jwt({ secret: process.env.SECRET, audience: process.env.AUDIENCE, credentialsRequired: true });
@@ -37,6 +44,8 @@ app.get('/api/public', (req, res) => {
 app.get('/api/private', authCheck, (req, res) => {
   res.json({ message: "Hello from a private endpoint!. You DO need to be authenticated to see this." })
 });
+
+
 
 
 app.get('/get/users', function(req, res) {

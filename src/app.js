@@ -73,7 +73,7 @@ angular // add module dependencies and configure it
     // fires anytime routing changes or page refreshes
     // will use to check users authentication state
     $rootScope.$on('$locationChangeStart', function() {
-      console.log('run ran!')
+      console.log('run ran!');
       // console.log('token expired?', jwtHelper.isTokenExpired(token))
       if (token) { // if there is a token
         if (!jwtHelper.isTokenExpired(token)) { // if token has not expired
