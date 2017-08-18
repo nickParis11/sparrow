@@ -18,7 +18,7 @@ angular.module('sparrow')
 
   //addTemplate add template to the database.
   this.sendTemplate = function() {
-    console.log('Send present workout to the database via http services',this.workout);
+    console.log('Send present workout to the database via http services',this.data);
   };
 })
 .component('timed', {
