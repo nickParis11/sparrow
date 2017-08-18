@@ -39,12 +39,11 @@ app.get('/api/private', authCheck, (req, res) => {
 });
 
 
-//
-
-app.get('/users', function(req, res) {
+app.get('get/users', function(req, res) {
   var users = [];
   User.find({}, function(err, user) {
     if (err) console.log(err);
+    console.log(user);
     users.push(user);
   })
   .then(function() {
@@ -53,7 +52,7 @@ app.get('/users', function(req, res) {
   });
 });
 
-app.get('/templates', function(req, res) {
+app.get('/get/templates', function(req, res) {
   var templates = [];
 
   Template.find({}, function(err, template) {
@@ -66,25 +65,25 @@ app.get('/templates', function(req, res) {
   });
 });
 
-app.get('/activities', function(req, res) {
-  var activities = [];
+app.get('/get/goals', function(req, res) {
+  var goals = [];
 
-  Activity.find({}, function(err, activity) {
+  Goal.find({}, function(err, goal) {
     if (err) console.log(err);
-    activities.push(activity);
+    goals.push(goal);
   })
   .then(function() {
-    console.log(activities);
-    res.send(activities);
+    console.log(goals);
+    res.send(goals);
   });
 });
 
-app.get('/histories', function(req, res) {
+app.get('/get/histories', function(req, res) {
   var histories = [];
 
   History.find({}, function(err, history) {
     if (err) console.log(err);
-    Histories.push(history);
+    histories.push(history);
   })
   .then(function() {
     console.log(histories);
@@ -92,31 +91,96 @@ app.get('/histories', function(req, res) {
   });
 });
 
+
 //HANDLE POST REQUESTS
 
-app.post('/users', function(req, res) {
+app.post('/post/users', function(req, res) {
   console.log(req.body);
   User.create(req.body);
   res.send('Posted User');
 });
 
-app.post('/templates', function(req, res) {
+app.post('/post//post/templates', function(req, res) {
   console.log(req.body);
   Template.create(req.body);
   res.send('Posted Template');
 });
 
-app.post('/activities', function(req, res) {
+app.post('/post/goals', function(req, res) {
   console.log(req.body);
-  Activity.create(req.body);
-  res.send('Posted Activity');
+  Goal.create(req.body);
+  res.send('Posted Goal');
 });
 
-app.post('/histories', function(req, res) {
+app.post('/post/histories', function(req, res) {
   console.log(req.body);
   History.create(req.body);
   res.send('Posted History');
 });
+
+
+//HANDLES SPECIFIC QUERIES
+
+//GET USER BY USER_ID
+app.get('/get/users/:id', function(req, res) {
+  var ident = req.params.id;
+  console.log(ident);
+  var user = null;
+  User.find({id: ident }, function(err, target) {
+    if (err) console.log(err);
+    user = target;
+  })
+  .then(function() {
+    console.log('user: ', user);
+    res.send(user);
+  });
+});
+
+//GET TEMPLATES BY USER_ID
+app.get('/get/templates/:user', function(req, res) {
+  var user = req.params.user;
+  var templates = [];
+
+  Template.find({user_id: user}, function(err, template) {
+    if (err) console.log(err);
+    templates.push(template);
+  })
+  .then(function() {
+    console.log(templates);
+    res.send(templates);
+  });
+});
+
+
+app.get('/get/histories/:user', function(req, res) {
+  var user = req.params.user;
+  var histories = [];
+
+  History.find({user_id: user}, function(err, history) {
+    if (err) console.log(err);
+    histories.push(history);
+  })
+  .then(function() {
+    console.log(histories);
+    res.send(histories);
+  });
+});
+
+app.get('/get/goals/:user', function(req, res) {
+  var user = req.params.user;
+  var goals = [];
+
+  Goal.find({user_id: user}, function(err, goal) {
+    if (err) console.log(err);
+    goals.push(goal);
+  })
+  .then(function() {
+    console.log(goals);
+    res.send(goals);
+  });
+});
+
+//END HANDLE SPECIFIC QUERIES
 
 app.listen(PORT, function() {
   console.log(`Node app is running on http://localhost:${PORT}`);
