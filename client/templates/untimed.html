@@ -9,3 +9,28 @@
 <br/>
 <button type="button" ng-click="$ctrl.addWorkout()">Add Exercise</button>
 <br/>
+
+<br/>
+<div>
+  <h3>Your Template</h3>
+  <button type="button" ng-click="$ctrl.addTemplate()">Add Template</button>
+  <table class="col-md-4">
+    <tr>
+      <th>Exercise Name
+      </th>
+      <th>Sets
+      </th>
+      <th>Reps
+      </th>
+    </tr>
+    <tr ng-repeat="entry in $ctrl.workout">
+      <td>{{entry.activity}}
+      </td>
+      <td>{{entry.sets}}
+      </td>
+      <td>{{entry.reps}}
+      </td>
+    </tr>
+  </table>
+  <br/>
+</div>
