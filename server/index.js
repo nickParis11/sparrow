@@ -7,7 +7,7 @@ const logger = require('morgan');
 const cors = require('cors'); // allow cors headers
 const jwt = require('express-jwt');
 // allows you to use .env file
-equire('dotenv').config({ silent: process.env.NODE_ENV === 'production' })
+require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
 
 app.use(cors());
 
