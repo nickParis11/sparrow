@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 mongoose.Promise = require('bluebird');
-require('dotenv').config();
+require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })
 const mongoServer = process.env.MONGO_SERVER;
 const mongoUsername = process.env.MONGO_USERNAME;
 const mongoPassword = process.env.MONGO_PASSWORD
