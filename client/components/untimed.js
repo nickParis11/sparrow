@@ -21,6 +21,7 @@ angular.module('sparrow')
 
   this.addTemplate = function() {
     this.createData();
+    httpService.sendData('/api/post/workout', this.data);
     console.log('Send present workout to the database via http services',this.data);
   };
 
