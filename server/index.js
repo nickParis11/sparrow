@@ -39,7 +39,7 @@ app.get('/api/private', authCheck, (req, res) => {
 });
 
 
-app.get('get/users', function(req, res) {
+app.get('/get/users', function(req, res) {
   var users = [];
   User.find({}, function(err, user) {
     if (err) console.log(err);
