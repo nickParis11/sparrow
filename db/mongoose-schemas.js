@@ -30,6 +30,7 @@ const templateSchema = new Schema({
   id: String,
   user_id: String,
   name: String,
+  workout: Object,
   timed: Boolean,
   date: String,
 });
