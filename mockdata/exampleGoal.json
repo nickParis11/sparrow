@@ -1,0 +1,18 @@
+[
+  {
+    "id":"0",
+    "number":"3",
+    "timeFrame" : "week",
+    "startDate" : "08-15-2017",
+    "name" : "weekly exercice",
+    "emailAlert" : "false"
+  },
+  {
+    "id" : "0",
+    "number" : "3",
+    "timeFrame" : "week",
+    "startDate" : "08-15-2017",
+    "name" : "weekly exercice",
+    "emailAlert" : "false"
+  }
+]
