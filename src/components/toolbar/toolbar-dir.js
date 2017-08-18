@@ -7,12 +7,20 @@ angular.module('authApp')
   .controller('toolbarController', toolbarController);
 
 
-function toolbarController(auth, store, $location) {
+function toolbarController(auth, store, $location, $http) {
   var vm = this;
   vm.login = login;
   vm.logout = logout;
+  vm.goToApplication = goToApplication;
   vm.auth = auth; // auth service will hold useful info
   // such as user is logged in
+  function goToApplication() {
+    console.log('$http',$http);
+    console.log('Application Entered');
+    $http.get('http://localhost:3002/api/get/application').then(function(){
+      console.log('This thing worked');
+    });
+  };
 
   function login() {
     console.log('login clicked');

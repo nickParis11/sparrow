@@ -1,4 +1,4 @@
-angular.module('sparrow',['ui.router'])
+angular.module('sparrow',['ui.router','angular-storage'])
 .config(function($stateProvider) {
   var states = [
     {
