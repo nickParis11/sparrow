@@ -13,12 +13,19 @@ angular.module('sparrow')
     obj.sets = '';
     obj.reps = '';
     this.workout.push(obj);
-    this.createData();
   };
 
   //addTemplate add template to the database.
   this.sendTemplate = function() {
+    this.createData();
     console.log('Send present workout to the database via http services',this.data);
+  };
+
+  this.createData  = function() {
+    this.data.userId = this.userId;
+    this.data.workout = this.workout;
+    this.data.templateName = this.templateName;
+    this.data.timed = true;
   };
 })
 .component('timed', {
