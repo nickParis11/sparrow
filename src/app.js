@@ -19,6 +19,14 @@ angular // add module dependencies and configure it
         controller: 'profileController as user'
       });
 
+    jwtOptionsProvider.config({
+      tokenGetter: function() {
+        return localStorage.getItem('id_token');
+      },
+      whiteListedDomains: ['localhost', '127.0.0.1'] // whitelist domains
+    });
+
+
     $urlRouterProvider.otherwise('/home');
     // remove ! from hash /#!/
     $locationProvider.hashPrefix('');
@@ -29,4 +37,52 @@ angular // add module dependencies and configure it
       // we need to push this into an array of http interceptors that comes from angular
       return store.get('id_token');
     }
+
+    // register interceptor which will redirect user to login if token expires
+    function redirect($q, $injector, $timeout, store, $location) {
+      var auth;
+      $timeout(function() {
+        auth = $injector.get('auth');
+      })
+      return {
+        responseError: function(rejection) {
+          console.log('Failed with', rejection.status, 'status');
+          if (rejection.status === 401) {
+            auth.signout();
+            store.remove('profile');
+            store.remove('id_token');
+            $location.path('/home'); // send back to homepage
+          }
+          return $q.reject(rejection); // return a rejection from $q
+        }
+      }
+    };
+
+    // commented this out because of a cicular dependency.
+    // let angular know about this interceptor and push onto the array of $http interceptor
+    $provide.factory('redirect', redirect);
+    $httpProvider.interceptors.push('redirect');
+
+    // here we push jwt to the angulars http interceptor
+    $httpProvider.interceptors.push('jwtInterceptor');
+  })
+
+  // check if session is still valid, if not direct back to sign in
+  .run(function($rootScope, $state, auth, store, jwtHelper, $location) {
+    // watch for changes in location
+    // fires anytime routing changes or page refreshes
+    // will use to check users authentication state
+    $rootScope.$on('$locationChangeStart', function() {
+      console.log('run ran!')
+      // console.log('token expired?', jwtHelper.isTokenExpired(token))
+      if (token) { // if there is a token
+        if (!jwtHelper.isTokenExpired(token)) { // if token has not expired
+          if (!auth.isAuthenticated) { // if user is not authenticated
+            auth.authenticate(store.get('profile'), token); // authenticate user
+          }
+        }
+      } else { // send to home to sign in again
+        $location.path('/home');
+      }
+    })
   })
