@@ -1,5 +1,5 @@
 angular.module('sparrow')
-.controller('UnTimedCtrl', function() {
+.controller('UnTimedCtrl', function(httpService) {
 
   //data is the information send when a template is added.
   this.data= {};

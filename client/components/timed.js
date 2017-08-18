@@ -1,5 +1,5 @@
 angular.module('sparrow')
-.controller('TimedCtrl', function() {
+.controller('TimedCtrl', function(httpService) {
 
   //data is the information send when a template is added.
   this.data= {};
@@ -22,6 +22,7 @@ angular.module('sparrow')
   //addTemplate add template to the database.
   this.sendTemplate = function() {
     this.createData();
+    httpService.sendData('/api/post/workout', this.data);
     console.log('Send present workout to the database via http services',this.data);
   };
 
