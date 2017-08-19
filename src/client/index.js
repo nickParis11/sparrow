@@ -3,7 +3,7 @@ angular.module('sparrow',['ui.router','angular-storage'])
   var states = [
     {
       name: 'createWorkout',
-      url: '/createWorkout',
+      url: '/createWorkous',
       component: 'createWorkout'
     },
     {
