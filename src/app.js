@@ -17,7 +17,13 @@ angular // add module dependencies and configure it
         url: '/profile',
         templateUrl: 'components/profile/profile-tpl.html',
         controller: 'profileController as user'
-      });
+      })
+      // integration from client
+      .state('workout', {
+        url: '/workout',
+        templateUrl: 'client/components/workout-component/workout.html',
+        controller: 'WorkoutCtrl'
+      })
 
     jwtOptionsProvider.config({
       tokenGetter: function() {

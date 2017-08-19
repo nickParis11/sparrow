@@ -19,7 +19,7 @@ angular.module('sparrow',['ui.router','angular-storage'])
     {
       name: 'workout',
       url: '/workout',
-      component: 'workoutsss'
+      component: 'workout'
     },
     {
       name:'goals',
