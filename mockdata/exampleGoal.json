@@ -1,17 +1,19 @@
 [
   {
     "id":"0",
+    "user_id" : "2",
     "number":"3",
     "timeFrame" : "week",
-    "startDate" : "08-15-2017",
+    "creationDate" : "08-15-2017",
     "name" : "weekly exercice",
     "emailAlert" : "false"
   },
   {
     "id" : "0",
+    "user_id" : "1",
     "number" : "3",
     "timeFrame" : "week",
-    "startDate" : "08-15-2017",
+    "creationDate" : "08-15-2017",
     "name" : "weekly exercice",
     "emailAlert" : "false"
   }
