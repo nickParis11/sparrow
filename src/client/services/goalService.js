@@ -1,7 +1,7 @@
 // goalService.getAllGoals();
 //
-angular.module('sparrow').
-service('goalService',function($http){
+angular.module('sparrow')
+.service('goalService',function($http){
 
   this.getAllGoals= function (){
    return fakeJSON_goals;

@@ -2,7 +2,7 @@ angular.module('sparrow')
 .controller('WorkoutCtrl', function WorkoutCtrl() {
 
 })
-.component('workout', {
+.component('workoutsss', {
   controller: 'WorkoutCtrl',
-  templateUrl: 'templates/workout.html'
+  templateUrl: 'components/workout-component/workout.html'
 });

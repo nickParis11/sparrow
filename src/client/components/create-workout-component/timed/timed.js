@@ -37,5 +37,5 @@ angular.module('sparrow')
 })
 .component('timed', {
   controller: 'TimedCtrl',
-  templateUrl: 'templates/timed.html'
+  templateUrl: 'components/create-workout-component/timed/timed.html'
 });

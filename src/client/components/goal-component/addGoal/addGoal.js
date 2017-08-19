@@ -1,6 +1,6 @@
 angular.module('sparrow')
 .controller('AddGoalCtrl', function(goalService) {
-
+  console.log('goalService', goalService)
   this.insertGoal= function(){
     // alert('name = ',this.name)
     // alert('input = ',this.input)
@@ -27,7 +27,7 @@ angular.module('sparrow')
 })
 .component('addGoal', {
   controller: 'AddGoalCtrl',
-  templateUrl: 'templates/addGoal.html'
+  templateUrl: 'components/goal-component/addGoal/addGoal.html'
 });
 
 /*

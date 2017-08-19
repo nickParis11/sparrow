@@ -5,6 +5,6 @@ angular.module('sparrow')
 // })
 .component('goal', {
   bindings : { resolveGoalItem :'<'}, //goal'
-  //controller: 'GoalCtrl',
-  templateUrl: 'templates/goal.html'
+  //controller: 'GoalCtrl',components/goal-component/goal
+  templateUrl: 'components/goal-component/goal/goal.html'
 });

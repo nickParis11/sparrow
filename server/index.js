@@ -24,11 +24,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../src')));
 app.use('/application', express.static(path.join(__dirname, '../client')));
 
+// app.get('/api/get/application', (req, res) => {
+//   console.log('We have met the application.');
+//   // res.writeHead(301);
+//   res.redirect('http://127.0.0.1:3002/api/public');
+//   // res.render('/../client/index');
+// });
 app.get('/api/get/application', (req, res) => {
   console.log('We have met the application.');
-  // res.writeHead(301);
-  res.redirect('https://www.google.com/');
-  // res.render('/../client/index');
+  // res.send("hi");
+  res.redirect('www.google.com');
 });
 
 //HANDLE GET REQUESTS

@@ -1,6 +1,6 @@
 angular.module('sparrow')
 .service('httpService', function ($http) {
-
+  console.log('$HTTP RAN!!')
   this.getData = function (url, callback) {
 
     $http.get(url)

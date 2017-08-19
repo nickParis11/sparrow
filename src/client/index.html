@@ -16,21 +16,22 @@
   </head>
   <body ng-app="sparrow">
     <h1>Hello Sparrows!!</h1>
-    <a ui-sref="createWorkout">Create Workout</a>
+    <a ui-sref="createWorkout">Created Workout</a>
     <a ui-sref="workout">Workout</a>
     <a ui-sref="goals">Goals</a>
     <ui-view></ui-view>
     <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="components/createWorkout.js"></script>
-    <script type="text/javascript" src="components/timed.js"></script>
-    <script type="text/javascript" src="components/untimed.js"></script>
-    <script type="text/javascript" src="components/workout.js"></script>
+
+    <script type="text/javascript" src="components/create-workout-component/createWorkout/createWorkout.js"></script>
+    <script type="text/javascript" src="components/create-workout-component/timed/timed.js"></script>
+    <script type="text/javascript" src="components/create-workout-component/untimed/untimed.js"></script>
+    <script type="text/javascript" src="components/workout-component/workout.js"></script>
     <script type="text/javascript" src="services/httpServices.js"></script>
 
     <!-- NickO insertions-->
-      <script type="text/javascript" src="components/goals.js"></script>
-      <script type="text/javascript" src="components/goal.js"></script>
-       <script type="text/javascript" src="components/addGoal.js"></script>
+    <script type="text/javascript" src="components/goal-component/goal/goal.js"></script>
+      <script type="text/javascript" src="components/goal-component/goals/goals.js"></script>
+       <script type="text/javascript" src="components/goal-component/addGoal/addGoal.js"></script>
     <!-- end NickO insertions-->
 
     <!-- services -->

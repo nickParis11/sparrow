@@ -19,7 +19,7 @@ angular.module('sparrow',['ui.router','angular-storage'])
     {
       name: 'workout',
       url: '/workout',
-      component: 'workout'
+      component: 'workoutsss'
     },
     {
       name:'goals',
@@ -62,4 +62,3 @@ angular.module('sparrow',['ui.router','angular-storage'])
   $uiRouter.plugin(Visualizer);
   $http.get('services/fakeJSONgoals.js', { cache: true });
 });*/
-
