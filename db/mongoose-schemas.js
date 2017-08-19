@@ -17,7 +17,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 //CREATING THE SCHEMA
 
 const userSchema = new Schema({
-  id: String,
   partner_user_id: String,
   name: String,
   email: String,
@@ -27,7 +26,6 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 //workout_id
 const templateSchema = new Schema({
-  id: String,
   user_id: String,
   templateName: String,
   workout: Object,
@@ -38,7 +36,6 @@ const templateSchema = new Schema({
 const Template = mongoose.model('Template', templateSchema);
 
 const historySchema = new Schema({
-  id: String,
   completed: Boolean,
   user_id: String,
   workout_id: String,
@@ -48,7 +45,6 @@ const historySchema = new Schema({
 const History = mongoose.model('History', historySchema);
 
 const goalSchema = new Schema ({
-  id: String,
   user_id: String,
   number: Number,
   timeFrame: String,
