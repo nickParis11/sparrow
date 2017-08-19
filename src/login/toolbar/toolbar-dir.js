@@ -1,7 +1,7 @@
-angular.module('authApp')
+angular.module('sparrowFit')
   .component('toolbar', {
     controller: 'toolbarController',
-    templateUrl: 'components/toolbar/toolbar-tpl.html',
+    templateUrl: 'login/toolbar/toolbar-tpl.html',
     controllerAs: 'toolbar'
   })
   .controller('toolbarController', toolbarController);
@@ -15,11 +15,8 @@ function toolbarController(auth, store, $location, $http) {
   vm.auth = auth; // auth service will hold useful info
   // such as user is logged in
   function goToApplication() {
-    console.log('$http',$http);
     console.log('Application Entered');
-    $http.get('http://localhost:3002/api/get/application').then(function(){
-      console.log('This thing worked');
-    });
+
   };
 
   function login() {
