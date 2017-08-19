@@ -1,3 +1,5 @@
 node_modules
 client/timer/bower_components
+src/client/timer/bower_components/
 .env
+.DS_Store
