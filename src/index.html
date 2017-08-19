@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="authApp">
+<html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
@@ -12,13 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
   <body ng-init="hello = 'hello world!'">
-    <toolbar></toolbar>
+    <!-- auth0 -->
+    <!-- <div ng-app="authApp">
+      <toolbar></toolbar>
 
-    <div layout-padding>
+      <div layout-padding>
+        <ui-view></ui-view>
+      </div>
+    </div> -->
+    <!-- sparrow -->
+    <div ng-app="sparrow">
+      <h1>Hello Sparrows!!</h1>
+      <a ui-sref="createWorkout">Created Workout</a>
+      <a ui-sref="workout">Workout</a>
+      <a ui-sref="goals">Goals</a>
       <ui-view></ui-view>
     </div>
-
-
 
     <!-- <script type="text/javascript" src="auth0-variables.js"></script> -->
 
@@ -41,5 +50,26 @@
     <script crossorigin src="components/toolbar/toolbar-dir.js"></script>
     <script crossorigin src="components/profile/profile-ctr.js"></script>
 
+
+
+    <!-- from client -->
+    <script type="text/javascript" src="client/index.js"></script>
+    <script type="text/javascript" src="client/components/create-workout-component/createWorkout/createWorkout.js"></script>
+    <script type="text/javascript" src="client/components/create-workout-component/timed/timed.js"></script>
+    <script type="text/javascript" src="client/components/create-workout-component/untimed/untimed.js"></script>
+    <script type="text/javascript" src="client/components/workout-component/workout.js"></script>
+    <script type="text/javascript" src="client/services/httpServices.js"></script>
+
+    <!-- NickO insertions-->
+    <script type="text/javascript" src="client/components/goal-component/goal/goal.js"></script>
+      <script type="text/javascript" src="client/components/goal-component/goals/goals.js"></script>
+       <script type="text/javascript" src="client/components/goal-component/addGoal/addGoal.js"></script>
+    <!-- end NickO insertions-->
+
+    <!-- services -->
+    <!-- NickO insertions-->
+
+      <script type="text/javascript" src="client/client-sample-data/sample-goals.js"></script>
+      <script type="text/javascript" src="client/services/goalService.js"></script>
   </body>
 </html>

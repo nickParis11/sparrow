@@ -34,5 +34,5 @@ angular.module('sparrow')
 })
 .component('untimed', {
   controller: 'UnTimedCtrl',
-  templateUrl: 'components/create-workout-component/untimed/untimed.html'
+  templateUrl: 'client/components/create-workout-component/untimed/untimed.html'
 });

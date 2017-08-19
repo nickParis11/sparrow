@@ -4,5 +4,5 @@ angular.module('sparrow')
 })
 .component('workoutsss', {
   controller: 'WorkoutCtrl',
-  templateUrl: 'components/workout-component/workout.html'
+  templateUrl: 'client/components/workout-component/workout.html'
 });

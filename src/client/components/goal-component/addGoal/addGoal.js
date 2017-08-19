@@ -27,7 +27,7 @@ angular.module('sparrow')
 })
 .component('addGoal', {
   controller: 'AddGoalCtrl',
-  templateUrl: 'components/goal-component/addGoal/addGoal.html'
+  templateUrl: 'client/components/goal-component/addGoal/addGoal.html'
 });
 
 /*
