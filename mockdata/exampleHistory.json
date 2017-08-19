@@ -1,14 +1,14 @@
 [
   {
     "id": "1",
-    "competed": "true",
+    "competed": true,
     "user_id": "1",
     "workout_id": "1",
     "date": "01/12/12"
   },
   {
     "id": "2",
-    "competed": "false",
+    "competed": false,
     "user_id": "2",
     "workout_id": "2",
     "date": "01/11/12"
