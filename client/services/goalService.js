@@ -4,8 +4,9 @@ angular.module('sparrow').
 service('goalService',function($http){
 
   this.getAllGoals= function (){
-   return fakeJSON_goals;
+   return fakeJSON_goals; // get(api/get/goal) coming from goal table
   }
+
   this.getGoal=function(goalID){
 
     function goalMatchesParam(goal){
@@ -24,7 +25,7 @@ service('goalService',function($http){
 
   this.addGoal=function(newGoal,callBack){
     alert('in addGoal');
-    fakeJSON_goals.push(newGoal);
+    fakeJSON_goals.push(newGoal); // post(api/post/goal) inserting into goal table
     callBack();
   };
 
