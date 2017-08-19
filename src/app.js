@@ -11,21 +11,21 @@ angular // add module dependencies and configure it
     $stateProvider
       .state('home', {
         url:'/home',
-        templateUrl: 'components/home/home-tpl.html'
+        templateUrl: 'login/home/home-tpl.html'
       })
       .state('profile', {
         url: '/profile',
-        templateUrl: 'components/profile/profile-tpl.html',
+        templateUrl: 'login/profile/profile-tpl.html',
         controller: 'profileController as user'
       })
       .state('application', {
         url: '/application',
-        templateUrl: 'components/application/application-tpl.html',
+        templateUrl: 'login/application/application-tpl.html',
         controller: 'applicationController'
       })
       .state('design', {
         url: '/design',
-        templateUrl: 'components/design-sandbox/design-sandbox.html',
+        templateUrl: 'login/design-sandbox/design-sandbox.html',
         controller: 'designController as user'
       })
       // INTEGRATION FROM CLIENT  // first param === name

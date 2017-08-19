@@ -1,7 +1,7 @@
 angular.module('sparrowFit')
   .component('toolbar', {
     controller: 'toolbarController',
-    templateUrl: 'components/toolbar/toolbar-tpl.html',
+    templateUrl: 'login/toolbar/toolbar-tpl.html',
     controllerAs: 'toolbar'
   })
   .controller('toolbarController', toolbarController);
