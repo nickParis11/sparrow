@@ -29,7 +29,7 @@ angular.module('sparrowFit')
   };
 
   this.createData  = function() {
-    this.data.user_Id = this.userId;
+    this.data.user_id = this.userId;
     this.data.workout = this.workout;
     this.data.templateName = this.templateName;
     this.data.timed = true;
