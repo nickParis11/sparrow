@@ -1,6 +1,11 @@
 angular.module('sparrowFit')
 .controller('TimedCtrl', function(httpService, store) {
    var token = store.get('id_token');
+   var profile = store.get('profile');
+   var userid = store.get('profile')['user_id'];
+   console.log('helow from TimedCtrl')
+   console.log('profile', profile)
+   console.log('userid', userid)
    console.log('Controller run');
    console.log('Token :',token);
   //data is the information send when a template is added.
@@ -17,10 +22,11 @@ angular.module('sparrowFit')
     obj.activity = this.activity;
     obj.duration = Number(this.minutes || 0) * 60 + Number(this.seconds || 0);
     obj.sets = '';
-    obj.reps = '';
+    obj.reps = ''
     this.workout.push(obj);
   };
-
+  // `/api/get/workout/${token}`
+  // `/api/get/workout/${this.userId}`
   //addTemplate add template to the database.
   this.sendTemplate = function() {
     this.createData();

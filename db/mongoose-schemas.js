@@ -25,14 +25,14 @@ const userSchema = new Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-
+//workout_id
 const templateSchema = new Schema({
   id: String,
   user_id: String,
   templateName: String,
   workout: Object,
   timed: Boolean,
-  date: String,
+  date: String
 });
 
 const Template = mongoose.model('Template', templateSchema);
@@ -55,7 +55,7 @@ const goalSchema = new Schema ({
   creationDate: Date,
   name: String,
   emailAlert: Boolean
-})
+});
 
 const Goal = mongoose.model('Goal', goalSchema);
 
