@@ -1,15 +1,22 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
     <h2>
-      <span>Angular Auth</span>
+      <span>Sparrow Fit</span>
     </h2>
     <span flex></span>
     <!-- will need to conditionally hide/show buttons -->
     <md-button
       aria-label="Application"
-      ng-click="toolbar.goToApplication()">
+      ui-sref="application"
+      ng-if="toolbar.auth.isAuthenticated"
+      >
       Application
 
+    </md-button>
+    <md-button
+      aria-label="Design"
+      ui-sref="design">
+      Design
     </md-button>
     <md-button
       aria-label="Login"

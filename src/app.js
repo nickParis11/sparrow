@@ -18,6 +18,16 @@ angular // add module dependencies and configure it
         templateUrl: 'components/profile/profile-tpl.html',
         controller: 'profileController as user'
       })
+      .state('application', {
+        url: '/application',
+        templateUrl: 'components/application/application-tpl.html',
+        controller: 'applicationController'
+      })
+      .state('design', {
+        url: '/design',
+        templateUrl: 'components/design-sandbox/design-sandbox.html',
+        controller: 'designController as user'
+      })
       // INTEGRATION FROM CLIENT  // first param === name
       .state({
         name: 'createWorkout',
