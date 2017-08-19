@@ -1,4 +1,4 @@
-angular.module('sparrow')
+angular.module('sparrowFit')
 .controller('AddGoalCtrl', function(goalService) {
   console.log('goalService', goalService)
   this.insertGoal= function(){

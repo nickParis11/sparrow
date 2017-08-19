@@ -1,4 +1,4 @@
-angular.module('sparrow')
+angular.module('sparrowFit')
 .controller('TimedCtrl', function(httpService, store) {
    var token = store.get('id_token');
    console.log('Controller run');

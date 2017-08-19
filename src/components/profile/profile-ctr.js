@@ -1,4 +1,4 @@
-angular.module('authApp')
+angular.module('sparrowFit')
   .controller('profileController', profileController)
 
 function profileController($http, store, $location) {

@@ -1,4 +1,4 @@
-angular.module('sparrow')
+angular.module('sparrowFit')
 .controller('CreateWorkoutCtrl', function() {
 
 })

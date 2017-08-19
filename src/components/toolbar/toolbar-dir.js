@@ -1,4 +1,4 @@
-angular.module('authApp')
+angular.module('sparrowFit')
   .component('toolbar', {
     controller: 'toolbarController',
     templateUrl: 'components/toolbar/toolbar-tpl.html',

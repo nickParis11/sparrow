@@ -1,5 +1,5 @@
 angular // add module dependencies and configure it
-  .module('authApp', ['auth0', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ui.router'])
+  .module('sparrowFit', ['auth0', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ui.router'])
   .config(function($locationProvider, jwtOptionsProvider, $provide, authProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider) {
 
     authProvider.init({ // for auth0 lock (login)
@@ -18,12 +18,64 @@ angular // add module dependencies and configure it
         templateUrl: 'components/profile/profile-tpl.html',
         controller: 'profileController as user'
       })
-      // integration from client
-      .state('workout', {
-        url: '/workout',
-        templateUrl: 'client/components/workout-component/workout.html',
-        controller: 'WorkoutCtrl'
+      // INTEGRATION FROM CLIENT  // first param === name
+      .state({
+        name: 'createWorkout',
+        url: '/createWorkout',
+        component: 'createWorkout',
       })
+      .state({
+        name:'createWorkout.timed',
+        url: '/timed',
+        component: 'timed',
+      })
+      .state({
+        name: 'createWorkout.untimed',
+        url: '/untimed',
+        component: 'untimed'
+      })
+      .state({
+        name: 'workoutsss',
+        url: '/workout',
+        component: 'workout'
+      })
+      .state({
+        name:'goals',
+        url:'/goals',
+        component: 'goals',
+        resolve : {
+          resolveGoal : function (goalService) {
+            var goals=goalService.getAllGoals();
+            //console.log( goals);
+            return goals;
+          }
+        }
+      })
+      .state({
+        name: 'goal',
+        url: '/{goalID}',
+        parent:'goals',
+        component : 'goal',
+        resolve : {
+          resolveGoalItem : function (goalService,$transition$) {
+            var goalDetailAfterUSerClick= goalService.getGoal($transition$.params().goalID);
+            console.log('in resolve goal, goalDetailAfterUSerClick = '+JSON.stringify(goalDetailAfterUSerClick));
+            return goalDetailAfterUSerClick;
+          }
+        }
+      })
+      .state({
+        name :'addGoal',
+        url:'/addGoal',
+        parent :'goals',
+        component : 'addGoal'
+      });
+
+
+
+
+
+
 
     jwtOptionsProvider.config({
       tokenGetter: function() {

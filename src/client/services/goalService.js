@@ -1,6 +1,6 @@
 // goalService.getAllGoals();
 //
-angular.module('sparrow')
+angular.module('sparrowFit')
 .service('goalService',function($http){
 
   this.getAllGoals= function (){

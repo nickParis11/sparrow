@@ -1,4 +1,4 @@
-angular.module('sparrow')
+angular.module('sparrowFit')
 .service('httpService', function ($http) {
   console.log('$HTTP RAN!!')
   this.getData = function (url, callback) {
