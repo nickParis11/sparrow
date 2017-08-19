@@ -75,6 +75,7 @@ angular // add module dependencies and configure it
     $rootScope.$on('$locationChangeStart', function() {
       console.log('run ran!');
       // console.log('token expired?', jwtHelper.isTokenExpired(token))
+      var token = store.get('id_token');
       if (token) { // if there is a token
         if (!jwtHelper.isTokenExpired(token)) { // if token has not expired
           if (!auth.isAuthenticated) { // if user is not authenticated
