@@ -29,7 +29,7 @@ const User = mongoose.model('User', userSchema);
 const templateSchema = new Schema({
   id: String,
   user_id: String,
-  name: String,
+  templateName: String,
   workout: Object,
   timed: Boolean,
   date: String,

@@ -58,7 +58,7 @@ app.get('/api/get/users', function(req, res) {
   });
 });
 
-app.get('/api/get/templates', function(req, res) {
+app.get('/api/get/workout', function(req, res) {
   var templates = [];
 
   Template.find({}, function(err, template) {
@@ -106,7 +106,7 @@ app.post('/api/post/users', function(req, res) {
   res.send('Posted User');
 });
 
-app.post('/api/post/templates', function(req, res) {
+app.post('/api/post/workout', function(req, res) {
   console.log(req.body);
   Template.create(req.body);
   res.send('Posted Template');
@@ -143,7 +143,7 @@ app.get('/api/get/users/:id', function(req, res) {
 });
 
 //GET TEMPLATES BY USER_ID
-app.get('/api/get/templates/:user', function(req, res) {
+app.get('/api/get/workout/:user', function(req, res) {
   var user = req.params.user;
   var templates = [];
 

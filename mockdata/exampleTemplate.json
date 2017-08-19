@@ -2,7 +2,7 @@
   {
     "id": "1",
     "user_id": "1",
-    "name": "Jimothy Hawkins Ultimate Push Up",
+    "templateName": "Jimothy Hawkins Ultimate Push Up",
     "workout":[{"name":"pushup","duration":"30","sets":5,"reps":3},{"name":"situp","duration":"30","sets":6,"reps":3}],
     "timed": "true",
     "date": "01/01/11"
