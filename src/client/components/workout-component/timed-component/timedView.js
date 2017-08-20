@@ -8,7 +8,9 @@ angular.module('sparrowFit')
   //   console.log('For loop runing:',obj[i]);
   //   time.clock('Dance', obj[i]);
   // }
-  this.timer.clock('Dance', 5);
+  var testData = [['Dance', 5], ['Crunches', 2], ['Planks', 4]];
+
+  this.timer.clock(testData);
 
 
   this.msg = 'Timer is working';
