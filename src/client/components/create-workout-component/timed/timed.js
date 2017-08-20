@@ -24,6 +24,7 @@ angular.module('sparrowFit')
     obj.duration = Number(this.minutes || 0) * 60 + Number(this.seconds || 0);
     obj.sets = '';
     obj.reps = '';
+    obj.break = Number(this.break || 0);
     this.workout.push(obj);
   };
   // `/api/get/workout/${token}`

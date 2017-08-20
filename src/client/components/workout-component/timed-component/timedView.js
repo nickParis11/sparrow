@@ -1,5 +1,16 @@
 angular.module('sparrowFit')
-.controller('timedViewCtrl', function(httpService) {
+.controller('timedViewCtrl', function(httpService, timerService) {
+  this.timer = timerService;
+  // var array = [5,2];
+  var obj = [5,2];
+  var time = this.timer;
+  // for(var i = 0; i < obj.length; i++) {
+  //   console.log('For loop runing:',obj[i]);
+  //   time.clock('Dance', obj[i]);
+  // }
+  this.timer.clock('Dance', 5);
+
+
   this.msg = 'Timer is working';
   console.log('This is message :',this.msg);
   this.completed = () => {
