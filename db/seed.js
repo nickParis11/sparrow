@@ -3,7 +3,7 @@ const templateData = require('./mockdata/exampleTemplate');
 const activityData = require('./mockdata/exampleActivity');
 const historyData = require('./mockdata/exampleHistory');
 const goalData = require('./mockdata/exampleGoal');
-const { User, Template, History, Goal } = require('./db/mongoose-schemas.js')
+const { User, Template, History, Goal } = require('./mongoose-schemas.js')
 
 
 //MAKE SURE TABLES ARE CLEAR

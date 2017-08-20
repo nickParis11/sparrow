@@ -1,10 +1,10 @@
 angular.module('sparrowFit')
-.controller('UnTimedCtrl', function(httpService) {
+.controller('UnTimedCtrl', function(httpService,  store) {
 
   //data is the information send when a template is added.
   this.data= {};
 
-  this.userId = 'xyz';
+  this.userId = store.get('profile')['user_id'];
 
   //workout contain template created by user.
   this.workout = [];
