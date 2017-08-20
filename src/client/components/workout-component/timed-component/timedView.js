@@ -24,7 +24,6 @@ angular.module('sparrowFit')
   console.log('timedView timerd: ', this.timerd);
   this.timer.clock(this.timerd);
 
-
   this.msg = 'Timer is working';
   console.log('This is message :',this.msg);
   this.completed = () => {
