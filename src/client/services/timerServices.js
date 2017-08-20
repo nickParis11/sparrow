@@ -1,30 +1,26 @@
 angular.module('sparrowFit')
 .service('timerService', function () {
 
-    this.clock = function(name, time //, next
-  ) {
+  this.clock = function(name, time) {     //function(name, time, next)
+    var clock = new FlipClock($('.your-clock'), {
+    clockFace: 'MinuteCounter',
+    autoStart: false,
+    countdown: true,
 
-  var clock = new FlipClock($('.your-clock'), {
-  clockFace: 'MinuteCounter',
-  autoStart: false,
-  countdown: true,
-
-  callbacks: {
-    start: function() {
-      console.log('clock has started');
+    callbacks: {
+      start: function() {
+        console.log('clock has started');
+      },
+      stop: function() {
+        //Maybe add a next feature here
+        console.log('clock has stopped');
+      }
     },
-    stop: function() {
-      //Maybe add a next feature here
-      console.log('clock has stopped');
-    }
-  },
 
-
-  //CUSTOM CHECK VALUES (NOT KEYWORDS)
-  startVal: false,
-  timeSet: false
-  //next: The next excercise or break
-
+    //CUSTOM CHECK VALUES (NOT KEYWORDS)
+    startVal: false,
+    timeSet: false
+    //next: The next excercise or break
 });
 
 if (Number.isInteger(Number(time)) && Number(time) > 0) {
