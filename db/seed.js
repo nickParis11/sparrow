@@ -1,8 +1,8 @@
-const userData = require('./mockdata/exampleUsers');
-const templateData = require('./mockdata/exampleTemplate');
-const activityData = require('./mockdata/exampleActivity');
-const historyData = require('./mockdata/exampleHistory');
-const goalData = require('./mockdata/exampleGoal');
+const userData = require('../mockdata/exampleUsers');
+const templateData = require('../mockdata/exampleTemplate');
+const activityData = require('../mockdata/exampleActivity');
+const historyData = require('../mockdata/exampleHistory');
+const goalData = require('../mockdata/exampleGoal');
 const { User, Template, History, Goal } = require('./db/mongoose-schemas.js')
 
 
