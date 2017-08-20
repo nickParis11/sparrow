@@ -22,23 +22,40 @@ angular.module('sparrowFit')
   };
 
 
+
   httpService.getData(this.url, (returnValue) => {
     console.log(1, returnValue)
     this.userData = returnValue[0];
     console.log('This is getting some data:', this.userData);
     // this.workoutData = userDataService.getWorkout(this.userData, this.inputName);//jogging,a
     // this.workout = this.workoutData.template;
+    this.myTimedTemplates = this.userData
+    .filter((a) => {
+      return a.timed;
+    })
+    .map((a) => {
+      console.log('a', a)
+      return a.templateName;
+    })
+    this.myUntimedTemplates = this.userData
+    .filter((b) => {
+      return b.timed === false;
+    })
+    .map((b) => {
+      return b.templateName;
+    })
   });
 
   this.getTimedTemps = function getTimedTemps() {
     console.log('hi from getTimedTemps');
-    this.showTimed = 'hello Timed';
+    this.showTimed = this.myTimedTemplates;
+
+
   };
 
   this.getUntimedTemps = function getUntimedTemps() {
     console.log('hi from getUntimedTemps');
-    this.showUntimed = 'hello Untimed';
-
+    this.showUntimed = this.myUntimedTemplates;
   };
 
 })
