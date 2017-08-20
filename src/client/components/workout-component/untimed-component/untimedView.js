@@ -8,6 +8,7 @@ angular.module('sparrowFit')
     this.sendData.workout_id = this.data.workout_id;
     httpService.sendData('/api/post/histories', this.sendData);
   };
+
 })
 .component('untimedView', {
   bindings: {

@@ -4,7 +4,6 @@ angular.module('sparrowFit')
   this.userData = {};
   this.workoutData = '';
   this.workout = '';
-  this.workout_id = '';
   this.user_id = 'xyz';
   this.url = '/api/get/workout/'+this.user_id;
 
@@ -13,8 +12,6 @@ angular.module('sparrowFit')
     console.log('This is getting some data:', this.userData);
     this.workoutData = userDataService.getWorkout(this.userData, 'jogging');//jogging,a
     this.workout = this.workoutData.template;
-    this.workout_id = this.workoutData.workout_id;
-    console.log('This is the workout :', this.workout, this.workout_id,this.user_id);
   });
 
 })
