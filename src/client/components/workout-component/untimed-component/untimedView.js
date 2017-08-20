@@ -1,5 +1,5 @@
 angular.module('sparrowFit')
-.controller('UnTimedViewCtrl', function(httpService){
+.controller('UnTimedViewCtrl', function(httpService) {
 
   this.completed = () => {
     this.sendData = {};

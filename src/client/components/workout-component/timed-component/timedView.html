@@ -1,7 +1,18 @@
-<h1>
-  Hello Happiness My old friend
-<!--   This is template data :
-  </br>
-  {{$ctrl.data.templateName}}
-  {{$ctrl.data.workout}} -->
-</h1>
+<h1> Hello timed Workout Plan</h1>
+  <h3>Your Workout for Today</h3>
+  <table>
+    <tr>
+      <th>Exercise Name
+      </th>
+      <th>Duration
+      </th>
+    </tr>
+    <tr ng-repeat="entry in $ctrl.workout">
+      <td>{{entry.activity}}
+      </td>
+      <td>{{entry.duration}}
+      </td>
+    </tr>
+  </table>
+  <br/>
+<button ng-click='$ctrl.completed()'>Completed</button>
