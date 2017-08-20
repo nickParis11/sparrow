@@ -45,7 +45,7 @@ angular // add module dependencies and configure it
         component: 'untimed'
       })
       .state({
-        name: 'workoutsss',
+        name: 'workout',
         url: '/workout',
         component: 'workout'
       })

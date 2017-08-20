@@ -3,7 +3,8 @@ angular.module('sparrowFit')
   this.timer = timerService;
   this.userData = {};
   httpService.getData('/api/get/workout/xyz', (returnValue) => {
-    console.log('This is getting some data:', this.userData = returnValue[0]);
+    this.userData = returnValue[0];
+    console.log('This is getting some data:', this.userData);
   });
 
   this.completed = function() {

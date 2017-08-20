@@ -1,7 +1,6 @@
 angular.module('sparrowFit')
 .controller('UnTimedViewCtrl', function(){
-  this.msg = 'Timer is working';
-  console.log('This is message :',this.msg, this.data);
+  console.log('This is data :', this.data);
 })
 .component('untimedView', {
   bindings: {
