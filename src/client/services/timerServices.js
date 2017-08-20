@@ -1,7 +1,7 @@
 angular.module('sparrowFit')
 .service('timerService', function () {
 
-  this.clock = function(name, time) {     //function(name, time, next)
+  this.clock = function(name, time, next) {     //function(name, time, next)
     var clock = new FlipClock($('.your-clock'), {
     clockFace: 'MinuteCounter',
     autoStart: false,
