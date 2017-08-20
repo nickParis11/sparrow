@@ -1,5 +1,6 @@
 angular.module('sparrowFit')
-.controller('WorkoutCtrl', function WorkoutCtrl(httpService) {
+.controller('WorkoutCtrl', function WorkoutCtrl(httpService, timerService) {
+  this.timer = timerService;
   this.userData = {};
   httpService.getData('/api/get/workout/xyz', (returnValue) => {
     console.log('This is getting some data:', this.userData = returnValue[0]);
@@ -13,6 +14,7 @@ angular.module('sparrowFit')
     console.log('Completed got clicked',this.data);
     httpService.sendData('/api/post/histories', this.data);
   };
+
 })
 
 .component('workout', {

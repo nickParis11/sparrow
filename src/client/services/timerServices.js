@@ -1,7 +1,9 @@
-console.log('timer.js loaded')
-var clockMaker = function(name, time //, next
+angular.module('sparrowFit')
+.service('timerService', function () {
+
+    this.clock = function(name, time //, next
   ) {
-  console.log('clockMaker Ran')
+
   var clock = new FlipClock($('.your-clock'), {
   clockFace: 'MinuteCounter',
   autoStart: false,
@@ -13,7 +15,7 @@ var clockMaker = function(name, time //, next
     },
     stop: function() {
       //Maybe add a next feature here
-      console.log('clock has stopped')
+      console.log('clock has stopped');
     }
   },
 
@@ -22,6 +24,7 @@ var clockMaker = function(name, time //, next
   startVal: false,
   timeSet: false
   //next: The next excercise or break
+
 });
 
 if (Number.isInteger(Number(time)) && Number(time) > 0) {
@@ -46,11 +49,6 @@ $(".timer").click(function() {
       clock.startVal = true;
     }
   }
-
 });
 };
-
-clockMaker("excercise", 20);
-
-//Since the clock can fire a callback when it stops, we could potentially change that callback to call the next exercise or rest
-
+});
