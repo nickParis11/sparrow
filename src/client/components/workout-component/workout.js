@@ -1,11 +1,15 @@
 angular.module('sparrowFit')
-.controller('WorkoutCtrl', function WorkoutCtrl(httpService, timerService) {
+.controller('WorkoutCtrl', function WorkoutCtrl(httpService, timerService, userDataService) {
   this.timer = timerService;
   this.userData = {};
+  this.workout ='';
   httpService.getData('/api/get/workout/xyz', (returnValue) => {
     this.userData = returnValue[0];
     console.log('This is getting some data:', this.userData);
+    this.workout = userDataService.getWorkout(this.userData, 'jogging');
+    console.log('This is the workout :', this.workout);
   });
+
 
   this.completed = function() {
     this.data = {};
