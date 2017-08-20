@@ -4,7 +4,14 @@
   <button ng-click='$ctrl.name()'>Get Template</button>
 </div>
 
-
+<div>
+  <button ng-click="$ctrl.getTimedTemps()">Timed Templates</button>
+  {{ $ctrl.showTimed }}
+</div>
+<div>
+  <button ng-click="$ctrl.getUntimedTemps()">Unimed Templates</button>
+  {{ $ctrl.showUntimed }}
+</div>
 <!-- <div class='happy'>
     {{$ctrl.timer.clock('Dance', 20)}}
 </div> -->
@@ -19,4 +26,3 @@
 </div> -->
 <timed-view ng-if="$ctrl.timed" data="$ctrl.workoutData" workout="$ctrl.workout"></timed-view>
 <untimed-view ng-if="$ctrl.untimed" data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
-
