@@ -1,11 +1,13 @@
 angular.module('sparrowFit')
-.controller('WorkoutCtrl', function WorkoutCtrl(httpService, timerService, userDataService) {
+.controller('WorkoutCtrl', function WorkoutCtrl(httpService, timerService, userDataService, store) {
+
   this.timer = timerService;
   this.userData = {};
   this.workoutData = '';
   this.workout = '';
-  this.user_id = 'xyz';
+  this.user_id = store.get('profile')['user_id'];
   this.url = '/api/get/workout/'+this.user_id;
+
   this.name = function () {
     console.log('This is the input Name :',this.inputName);
     this.workoutData = userDataService.getWorkout(this.userData, this.inputName);//jogging,a
