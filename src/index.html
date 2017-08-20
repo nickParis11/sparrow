@@ -6,6 +6,7 @@
     <title>Angular JS Auth</title>
     <!-- Auth0 Lock script and AngularJS module -->
     <script src="//cdn.auth0.com/js/lock-9.0.js"></script>
+    <link rel="stylesheet" href="client/timer/bower_components/flipclock/compiled/flipclock.css">
     <!-- <script src="https://cdn.auth0.com/js/lock-9.min.js"></script> -->
 <!-- <script type="text/javascript" src="//cdn.auth0.com/js/lock-9.0.js"></script> -->
     <!-- Setting the right viewport (for mobile devices)-->
@@ -19,14 +20,14 @@
         <ui-view></ui-view>
       </div>
     </div>
-    <!-- sparrow -->
-    <!-- <div ng-app="sparrow">
-      <h1>Hello Sparrows!!</h1>
-      <a ui-sref="createWorkout">Created Workout</a>
-      <a ui-sref="workout">Workout</a>
-      <a ui-sref="goals">Goals</a>
-      <ui-view></ui-view>
-    </div> -->
+
+<!--     <h1 class="clockname"></h1>
+    <div class="your-clock">
+    </div>
+    <input class="settime"></input>
+    <button class="timer">
+    Start
+    </button> -->
 
     <!-- <script type="text/javascript" src="auth0-variables.js"></script> -->
 
@@ -60,6 +61,12 @@
     <script type="text/javascript" src="client/components/create-workout-component/untimed/untimed.js"></script>
     <script type="text/javascript" src="client/components/workout-component/workout.js"></script>
     <script type="text/javascript" src="client/services/httpServices.js"></script>
+
+    <!-- Timer Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="client/timer/bower_components/flipclock/compiled/flipclock.min.js"></script>
+    <script src="client/timer/timer.js"></script>
+    <script type="text/javascript" src="client/services/timerServices.js"></script>
 
     <!-- NickO insertions-->
     <script type="text/javascript" src="client/components/goal-component/goal/goal.js"></script>
