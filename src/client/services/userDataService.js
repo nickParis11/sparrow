@@ -8,6 +8,7 @@ angular.module('sparrowFit')
         if (template.templateName === name) {
           workout.template = template.workout;
           workout.workout_id = template._id;
+          workout.user_id = template.user_id;
         }
       });
     }
