@@ -3,15 +3,22 @@
   Enter template name: <input type="text" ng-model="$ctrl.inputName"/>
   <button ng-click='$ctrl.name()'>Get Template</button>
 </div>
+<div id="show-timed-untimed">
+  <div>
+    <button ng-click="$ctrl.getTimedTemps()">Timed Templates</button>
+    <div ng-click="$ctrl.myFunc(show)" ng-repeat="show in $ctrl.showTimed" show="show">
+      {{ show }}
+    </div>
+  </div>
 
-<div>
-  <button ng-click="$ctrl.getTimedTemps()">Timed Templates</button>
-  {{ $ctrl.showTimed }}
+  <div>
+    <button ng-click="$ctrl.getUntimedTemps()">Untimed Templates</button>
+    <div ng-click="$ctrl.myFunc2(show2)" ng-repeat="show2 in $ctrl.showUntimed" show2="show2">
+      {{ show2 }}
+    </div>
+  </div>
 </div>
-<div>
-  <button ng-click="$ctrl.getUntimedTemps()">UnTimed Templates</button>
-  {{ $ctrl.showUntimed }}
-</div>
+
 <!-- <div class='happy'>
     {{$ctrl.timer.clock('Dance', 20)}}
 </div> -->

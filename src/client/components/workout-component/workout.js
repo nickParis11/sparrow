@@ -21,7 +21,12 @@ angular.module('sparrowFit')
     console.log('Timed value :', this.timed);
   };
 
-
+  this.myFunc = function(show) {
+    console.log(show);
+  }
+  this.myFunc2 = function(show2) {
+    console.log(show2);
+  }
 
   httpService.getData(this.url, (returnValue) => {
     console.log(1, returnValue)
