@@ -17,8 +17,8 @@
     Start
     </button>
 </div> -->
-<timed-view data="$ctrl.userData" workout="$ctrl.workout"></timed-view>
-<untimed-view data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
+<timed-view ng-if="$ctrl.timed" data="$ctrl.userData" workout="$ctrl.workout"></timed-view>
+<untimed-view ng-if="$ctrl.untimed" data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
 <!--{{$ctrl.userData}}
 
 
