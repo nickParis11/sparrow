@@ -7,15 +7,17 @@
     </div>
   </br>
  <h3>Add Exercise</h3>
-  <div>
-    Exercise : <input type="text" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
-    Sets :<input type="text" ng-model="$ctrl.sets" placeholder="Enter Sets" />
-    Reps :<input type="text" ng-model="$ctrl.reps" placeholder="Enter Reps" />
+  <div class="form-group">
+    <label>Exercise</label>
+    <input type="text" class="form-control" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
+    <label>Sets</label>
+    <input type="text" class="form-control" ng-model="$ctrl.sets" placeholder="Enter Sets" />
+    <label>Reps</label>
+    <input type="text" class="form-control" ng-model="$ctrl.reps" placeholder="Enter Reps" />
   </div>
 <br/>
 <button type="button" class="btn btn-info" ng-click="$ctrl.addWorkout()">Add Exercise</button>
 <br/>
-
 <br/>
 <div>
   <h3>Your Template</h3>

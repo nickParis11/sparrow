@@ -7,16 +7,20 @@
     </div>
    </br>
   <h3>Add Exercise</h3>
-    <div>
-      Exercise : <input type="text" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
+    <div class="form-group">
+      <label>Exercise</label>
+      <input type="text" class="form-control" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
     </div>
-    <div>
-      Duration :
-      <input type="text" ng-model="$ctrl.minutes" placeholder="Enter Minutes" />
-      <input type="text" ng-model="$ctrl.seconds" placeholder="Enter Seconds" />
+    <div class="form-group">
+      <label>Duration</label>
+
+      <input type="text"  class="form-control" ng-model="$ctrl.minutes" placeholder="Enter Minutes" />
+      <input type="text"  class="form-control" ng-model="$ctrl.seconds" placeholder="Enter Seconds" />
     </div>
-    <div>
-      Add Break : <input type="text" ng-model="$ctrl.break" placeholder="Enter Break in Sec" />
+    <div class="form-group">
+
+      <label>Break</label>
+      <input type="text" class="form-control" ng-model="$ctrl.break" placeholder="Enter Break in Sec" />
     </div>
     <br/>
     <button type="button" class="btn btn-info" ng-click="$ctrl.addWorkout()">Add Exercise</button>
