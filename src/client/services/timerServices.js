@@ -2,11 +2,11 @@ angular.module('sparrowFit')
 .service('timerService', function () {
 
   this.clock = function(data) {
-    var innerFunction = function(data, position = 0) {
+    var innerFunction = function(data, position = 0, autoStart = false) {
       $('.timer').text('Start');
       var clock = new FlipClock($('.your-clock'), {
       clockFace: 'MinuteCounter',
-      autoStart: false,
+      autoStart: autoStart,
       countdown: true,
       position: position,
 
@@ -20,7 +20,7 @@ angular.module('sparrowFit')
             position = position + 1;
             clock.startVal = false;
             clock.timeSet = false;
-            innerFunction(data, position);
+            innerFunction(data, position, clock.autoStart);
           } else {
             console.log('No more data, clock is done');
           }
@@ -48,21 +48,31 @@ angular.module('sparrowFit')
         }
 
     $(".clockname").text(name);
+    if (clock.autoStart) {
+      clock.start();
+    }
 
-    //START AND STOP THE TIMER
     $(".timer").click(function() {
-      if (clock.timeSet) {
-        if (clock.startVal) {
-          $(".timer").text("Start");
-          clock.stop();
-          clock.startVal = false;
-        } else {
-          $(".timer").text("Stop");
-          clock.start();
-          clock.startVal = true;
-        }
+      if (!clock.autoStart) {
+        clock.autoStart = true;
+        clock.start();
       }
     });
+
+    //START AND STOP THE TIMER
+    // $(".timer").click(function() {
+    //   if (clock.timeSet) {
+    //     if (clock.startVal) {
+    //       $(".timer").text("Start");
+    //       clock.stop();
+    //       clock.startVal = false;
+    //     } else {
+    //       $(".timer").text("Stop");
+    //       clock.start();
+    //       clock.startVal = true;
+    //     }
+    //   }
+    // });
     }
     innerFunction(data);
   };
