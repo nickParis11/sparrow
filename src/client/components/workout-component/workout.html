@@ -1,18 +1,21 @@
-<h1>Workout component</h1>
+<div class="container">
 <div>
   Enter template name: <input type="text" ng-model="$ctrl.inputName"/>
-  <button ng-click='$ctrl.name($ctrl.inputName)'>Get Template</button>
+  <button ng-click='$ctrl.name($ctrl.inputName)' class="btn btn-success">Get Template</button>
 </div>
+</br>
 <div id="show-timed-untimed">
   <div>
-    <button ng-click="$ctrl.getTimedTemps()">Timed Templates</button>
+    <button ng-click="$ctrl.getTimedTemps()" class="btn btn-info">Timed Templates</button>
+    </br>
     <div ng-click="$ctrl.name(show)" ng-repeat="show in $ctrl.showTimed" show="show">
       {{ show }}
     </div>
   </div>
-
+  </br>
   <div>
-    <button ng-click="$ctrl.getUntimedTemps()">Untimed Templates</button>
+    <button ng-click="$ctrl.getUntimedTemps()" class="btn btn-info">Untimed Templates</button>
+    </br>
     <div ng-click="$ctrl.name(show2)" ng-repeat="show2 in $ctrl.showUntimed" show2="show2">
       {{ show2 }}
     </div>
@@ -21,5 +24,7 @@
 
 <timed-view ng-if="$ctrl.timed" data="$ctrl.workoutData" workout="$ctrl.workout"></timed-view>
 <untimed-view ng-if="$ctrl.untimed" data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
+</div>
+
 
 
