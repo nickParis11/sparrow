@@ -33,13 +33,13 @@ const authCheck = jwt({ secret: process.env.SECRET, audience: process.env.AUDIEN
 // SET UP A PUBLIC AND PRIVATE ENDPOINT
 app.get('/api/public', (req, res) => {
   console.log('hi from /api/public')
-  res.json({ message: "Hello from a public endpoint!. You don't need to be authenticated to see this." })
+  res.json({ message: "Hello from a public endpoint! You don't need to be authenticated to see this." })
 });
 
 // to protect this endpoint pass our middleware as second arg
 // will require an auth header to be present for user to go through to this endpoint
 app.get('/api/private', authCheck, (req, res) => {
-  res.json({ message: "Hello from a private endpoint!. You DO need to be authenticated to see this." })
+  res.json({ message: "Hello from a private endpoint! You DO need to be authenticated to see this." })
 });
 
 
