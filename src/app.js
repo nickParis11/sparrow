@@ -11,7 +11,8 @@ angular // add module dependencies and configure it
     $stateProvider
       .state('home', {
         url:'/home',
-        templateUrl: 'login/home/home-tpl.html'
+        templateUrl: 'login/home/home-tpl.html',
+        controller: 'homeController as home'
       })
       .state('profile', {
         url: '/profile',
