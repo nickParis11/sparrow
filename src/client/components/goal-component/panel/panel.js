@@ -1,3 +1,4 @@
+console.log(' !!!!!!!!******loaded panel.js')
 angular.module('sparrowFit')
 .controller('panelCtrl', function(goalService) {
   console.log(' !!!!!!!!******in panel controller and was passed the service')
@@ -8,3 +9,4 @@ angular.module('sparrowFit')
   controller: 'panelCtrl',
   templateUrl: 'client/components/goal-component/panel/panel.html'
 });
+

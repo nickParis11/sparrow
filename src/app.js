@@ -95,13 +95,24 @@ angular // add module dependencies and configure it
         name :'goalList',
         url:'/goallist',
         parent :'goals',
-        component :'goalList'
+        component :'goalList',
+        resolve : {
+          resolveGoalList : function (goalService) {
+            // move the content of golas/resolve func in here
+            return '!!!!! implement me !!!!!';
+          }
+        }
       })
       .state({
-        name :'workoutHistory',
-        url:'/workouthistory',
+        name :'history',
+        url:'/history',
         parent :'goals',
-        component : 'workoutHistory'
+        component : 'history',
+        resolve : {
+          resolveHistory : function (goalService) {
+            return '!!!!! implement me !!!!!';
+          }
+        }
       })
 
       ;
