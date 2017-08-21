@@ -1,16 +1,14 @@
 angular.module('sparrowFit')
 .controller('timedViewCtrl', function(httpService, timerService) {
   this.timer = timerService;
-  var testData = [];
-
-
+  this.timerData = [];
   this.loadData = function () {
-
     for (var i = 0; i < this.workout.length; i++) {
-      testData.push([this.workout[i].activity, this.workout[i].duration]);
-      testData.push(['Break', this.workout[i].break]);
+      this.timerData.push([this.workout[i].activity, this.workout[i].duration]);
+      this.timerData.push(['Break', this.workout[i].break]);
     }
-    this.timer.clock(testData);
+    this.timer.clock(this.timerData);
+    this.timerData = [];
   };
 
   this.completed = () => {
