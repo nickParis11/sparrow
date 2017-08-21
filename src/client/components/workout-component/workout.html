@@ -8,7 +8,7 @@
   <div>
     <button ng-click="$ctrl.getTimedTemps()" class="btn btn-info">Timed Templates</button>
     </br>
-    <div ng-click="$ctrl.name(show)" ng-repeat="show in $ctrl.showTimed" show="show">
+    <div ng-click="$ctrl.name(show)" ng-repeat="show in $ctrl.showTimed | filter:$ctrl.inputName" show="show">
       {{ show }}
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div>
     <button ng-click="$ctrl.getUntimedTemps()" class="btn btn-info">Untimed Templates</button>
     </br>
-    <div ng-click="$ctrl.name(show2)" ng-repeat="show2 in $ctrl.showUntimed" show2="show2">
+    <div ng-click="$ctrl.name(show2)" ng-repeat="show2 in $ctrl.showUntimed | filter:$ctrl.inputName" show2="show2">
       {{ show2 }}
     </div>
   </div>
@@ -25,6 +25,3 @@
 <timed-view ng-if="$ctrl.timed" data="$ctrl.workoutData" workout="$ctrl.workout"></timed-view>
 <untimed-view ng-if="$ctrl.untimed" data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
 </div>
-
-
-
