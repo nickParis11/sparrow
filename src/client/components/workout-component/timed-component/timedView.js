@@ -5,18 +5,14 @@ angular.module('sparrowFit')
 
 
   this.loadData = function () {
+
     for (var i = 0; i < this.workout.length; i++) {
-      var tuple = [this.workout[i].activity, this.workout[i].duration];
-      testData.push(tuple);
+      testData.push([this.workout[i].activity, this.workout[i].duration]);
       testData.push(['Break', this.workout[i].break]);
     }
-
     this.timer.clock(testData);
   };
 
-      // this.timer.clock(testData);
-  this.msg = 'Timer is working';
-  console.log('This is message :',this.msg);
   this.completed = () => {
     this.sendData = {};
     this.sendData.completed = true;
