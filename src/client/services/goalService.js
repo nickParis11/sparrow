@@ -4,7 +4,9 @@ angular.module('sparrowFit')
 .service('goalService',function($http){
 
   this.getAllGoals= function (){
-   return fakeJSON_goals;
+    var allGoals=$http.get('/api/get/goals');
+    console.log('allGoals in goalService',allGoals);
+   return allGoals;
   }
   this.getGoal=function(goalID){
 
@@ -23,8 +25,8 @@ angular.module('sparrowFit')
   }
 
   this.addGoal=function(newGoal,callBack){
-    alert('in addGoal');
-    fakeJSON_goals.push(newGoal);
-    callBack();
+    // call end point here
+    $http.post('/post/goals',newGoal);
+    callBack(newGoal);
   };
 })

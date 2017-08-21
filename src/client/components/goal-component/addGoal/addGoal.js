@@ -1,28 +1,33 @@
 angular.module('sparrowFit')
-.controller('AddGoalCtrl', function(goalService) {
-  console.log('goalService', goalService)
+.controller('AddGoalCtrl', function(goalService,store) {
+
+    var profile = store.get('profile');
+    this.userId = store.get('profile')['user_id'];
+
   this.insertGoal= function(){
-    // alert('name = ',this.name)
-    // alert('input = ',this.input)
-    console.log('input = ',this.input)
-    console.log('name = ',this.name)
 
     //fetch and create goal to be inserted
     var dynamicGoal = {}
-    dynamicGoal.name = this.name;
-    dynamicGoal.timeframe = this.timeframe;
+    dynamicGoal.user_id = this.userId // to implement
     dynamicGoal.number = this.number;
-    dynamicGoal.hasEmailAlert = this.hasEmailAlert;
-    dynamicGoal.startDate='!!!temporary fake messge!!!';
-    dynamicGoal.endDate='!!!temporary fake messge!!!';
-    dynamicGoal.startDate='!!!temporary fake messge!!!';
-    dynamicGoal.completionRate=0;
-    dynamicGoal.workoutPace = 0;
-    dynamicGoal.workoutPosition ='ahead of',
-    dynamicGoal.MotivationPhrase='Take your first workout now !',
+    dynamicGoal.timeFrame = this.timeframe;
+    dynamicGoal.name = this.name;
+    dynamicGoal.emailAlert = this.hasEmailAlert;
+
+
+    // dynamicGoal.startDate='!!!temporary fake messge!!!';
+    // dynamicGoal.endDate='!!!temporary fake messge!!!';
+    // dynamicGoal.startDate='!!!temporary fake messge!!!';
+    // dynamicGoal.completionRate=0;
+    // dynamicGoal.workoutPace = 0;
+    // dynamicGoal.workoutPosition ='ahead of',
+    // dynamicGoal.MotivationPhrase='Take your first workout now !',
+
     dynamicGoal = JSON.stringify(dynamicGoal);
-    console.log('goalService in AddGoalCtrl = ',goalService);
-    goalService.addGoal(dynamicGoal,function(){return;}); // implement a proper callBAck when real datas
+    console.log('in insertGoal() in AddGoalCtrl = ');
+    goalService.addGoal(dynamicGoal,function(goalInserted){
+      console.log('mocked up the insertion this new goal',goalInserted);
+    }); // implement a proper callBAck when real datas
   }
 })
 .component('addGoal', {
@@ -30,17 +35,25 @@ angular.module('sparrowFit')
   templateUrl: 'client/components/goal-component/addGoal/addGoal.html'
 });
 
-/*
-{id:0,
-  number:3,
-  timeFrame : 'week',
-  startDate:'08-15-2017',// Nich H do you think this date format can be easily retrieved from the db ?
-  endDate : '11-15-2017', // Nich H do you think this date format can be easily retrieved from the db ?
-  name : ' weekly exercice',
-  alertByEmail : false,
-  completionRate : 8,
-  workoutPace : 17,
-  workoutPosition : 'behind',
-  MotivationPhrase:"you should move this ass while it still can get up of that chair"
-}
-*/
+// [
+//   {
+//     "id":"0",
+//     "user_id" : "2",
+//     "number":"3",
+//     "timeFrame" : "week",
+//     "creationDate" : "08-15-2017",
+//     "name" : "weekly exercice",
+//     "emailAlert" : "false"
+//   },
+//   {
+//     "id" : "0",
+//     "user_id" : "1",
+//     "number" : "3",
+//     "timeFrame" : "week",
+//     "creationDate" : "08-15-2017",
+//     "name" : "weekly exercice",
+//     "emailAlert" : "false"
+//   }
+// ]
+
+
