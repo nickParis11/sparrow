@@ -8,8 +8,9 @@
     Start
     </button>
 </div>
-  <h3>Your Workout for Today</h3>
-  <table>
+  <div class="col-md-4">
+    <h3>Your Workout for Today</h3>
+  <table class="table ">
     <tr>
       <th>Exercise Name
       </th>
@@ -28,6 +29,9 @@
     </tr>
   </table>
   <br/>
-<button ng-click='$ctrl.completed()' class="btn btn-success">Completed</button>
+  <button ng-click='$ctrl.completed()' class="btn btn-success">Completed</button>
 <button ng-click='$ctrl.loadData()' class="btn btn-info">Enter data to timer</button>
+  </div>
+
+
 
