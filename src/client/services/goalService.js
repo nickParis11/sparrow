@@ -4,11 +4,15 @@ angular.module('sparrowFit')
 .service('goalService',function($http){
 
   this.getAllGoals= function (callBack){
-    var allGoals=$http.get('/api/get/goals').then(function(res){
+    var allGoals=$http.get('/api/get/goals')/*.then(function(res){
       console.log('allGoals in goalService',res.data);
-      callBack(res.data)
-    });
+      if(callBack){
+        callBack(res.data);
+      }
 
+    });
+    */
+   console.log('allGoals in getAllGoals in goalService',allGoals)
    return allGoals;
   }
   this.getGoal=function(goalID){

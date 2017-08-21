@@ -14,15 +14,6 @@ angular.module('sparrowFit')
     dynamicGoal.name = this.name;
     dynamicGoal.emailAlert = this.hasEmailAlert;
 
-
-    // dynamicGoal.startDate='!!!temporary fake messge!!!';
-    // dynamicGoal.endDate='!!!temporary fake messge!!!';
-    // dynamicGoal.startDate='!!!temporary fake messge!!!';
-    // dynamicGoal.completionRate=0;
-    // dynamicGoal.workoutPace = 0;
-    // dynamicGoal.workoutPosition ='ahead of',
-    // dynamicGoal.MotivationPhrase='Take your first workout now !',
-
     dynamicGoal = JSON.stringify(dynamicGoal);
     console.log('in insertGoal() in AddGoalCtrl = ');
     goalService.addGoal(dynamicGoal,function(goalInserted){

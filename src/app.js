@@ -60,8 +60,10 @@ angular // add module dependencies and configure it
         component: 'goals',
         resolve : {
           resolveGoal : function (goalService) {
+
             var goals=goalService.getAllGoals();
             //console.log( goals);
+
             return goals;
           }
         }
@@ -104,7 +106,10 @@ angular // add module dependencies and configure it
         resolve : {
           resolveGoalList : function (goalService) {
             // move the content of golas/resolve func in here
-            var goals=goalService.getAllGoals();
+            var goals=goalService.getAllGoals().then(function(res){
+                this.goals=res.data;
+            });
+            console.log('goals in resolveGoalList() in goalList State',goals)
             //console.log( goals);
             return goals;
           }
