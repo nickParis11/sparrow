@@ -24,24 +24,14 @@ function profileController($http, store, $location) {
 
   function getSecretMessage() {
     console.log('getSecretMessage clicked', { skipAuthorization: false });
-    // var token = store.get('id_token');
-    // var token = storage.getItem('id_token');
-    // console.log('store', store.storage.get('id_token'));
-    // console.log('getSecretMessage TOKEN:', token)
-    // var token = store.storage.get('id_token')
-    // if (token) {
-      $http
-        .get('http://localhost:3002/api/private')
-        .then(function(response) {
-          console.log('then response:', response)
-          vm.message = response.data.message;
-        })
-        .catch(function(error) {
-          console.error('error from getSecretMessage:', error)
-        });
-    // } else {
-      // $location.path('/home');
-    // }
-
+    $http
+      .get('http://localhost:3002/api/private')
+      .then(function(response) {
+        console.log('then response:', response)
+        vm.message = response.data.message;
+      })
+      .catch(function(error) {
+        console.error('error from getSecretMessage:', error)
+      });
   }
 }
