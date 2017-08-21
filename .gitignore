@@ -3,3 +3,4 @@ src/client/timer/bower_components
 src/bower_components/
 .env
 .DS_Store
+client/timer/bower_components

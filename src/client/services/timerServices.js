@@ -1,50 +1,69 @@
 angular.module('sparrowFit')
 .service('timerService', function () {
 
-  this.clock = function(name, time, next) {     //function(name, time, next)
-    var clock = new FlipClock($('.your-clock'), {
-    clockFace: 'MinuteCounter',
-    autoStart: false,
-    countdown: true,
+  this.clock = function(data) {
+    var innerFunction = function(data, position = 0) {
+      $('.timer').text('Start');
+      var clock = new FlipClock($('.your-clock'), {
+      clockFace: 'MinuteCounter',
+      autoStart: false,
+      countdown: true,
+      position: position,
 
-    callbacks: {
-      start: function() {
-        console.log('clock has started');
+      callbacks: {
+        start: function() {
+          console.log('clock has started');
+        },
+        stop: function() {
+          console.log('position', position);
+          if (position < data.length - 1) {
+            position = position + 1;
+            clock.startVal = false;
+            clock.timeSet = false;
+            innerFunction(data, position);
+          } else {
+            console.log('No more data, clock is done');
+          }
+        }
       },
-      stop: function() {
-        //Maybe add a next feature here
-        console.log('clock has stopped');
+
+      //CUSTOM CHECK VALUES (NOT KEYWORDS)
+      startVal: false,
+      timeSet: false
+
+    });
+
+    console.log('data: ', data, 'pos: ', position);
+
+    var name = data[position][0];
+    var time = data[position][1];
+    console.log('name: ', name, " time: ", time);
+
+
+    if (Number.isInteger(Number(time)) && Number(time) > 0) {
+          clock.timeSet = true;
+          clock.setTime(Number(time));
+        } else {
+          alert("Insert a number");
+        }
+
+    $(".clockname").text(name);
+
+    //START AND STOP THE TIMER
+    $(".timer").click(function() {
+      if (clock.timeSet) {
+        if (clock.startVal) {
+          $(".timer").text("Start");
+          clock.stop();
+          clock.startVal = false;
+        } else {
+          $(".timer").text("Stop");
+          clock.start();
+          clock.startVal = true;
+        }
       }
-    },
-
-    //CUSTOM CHECK VALUES (NOT KEYWORDS)
-    startVal: false,
-    timeSet: false
-    //next: The next excercise or break
-});
-
-if (Number.isInteger(Number(time)) && Number(time) > 0) {
-      clock.timeSet = true;
-      clock.setTime(Number(time));
-    } else {
-      alert("Insert a number");
+    });
     }
-
-$(".clockname").text(name);
-
-//START AND STOP THE TIMER
-$(".timer").click(function() {
-  if (clock.timeSet) {
-    if (clock.startVal) {
-      $(".timer").text("Start");
-      clock.stop();
-      clock.startVal = false;
-    } else {
-      $(".timer").text("Stop");
-      clock.start();
-      clock.startVal = true;
-    }
-  }
-});
-};
+    innerFunction(data);
+  };
 });
