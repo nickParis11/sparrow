@@ -1,22 +1,24 @@
-  <h3>Add Template</h3>
-    <div>
-      Enter Template Name : <input type="text" ng-model="$ctrl.templateName" placeholder="Enter Template Name"/>
+ <div class="col-md-8">
+   </br>
+    <h3>Add Template</h3>
+    <div class="form-group">
+      <label>Template Name</label>
+      <input type="text" class="form-control" ng-model="$ctrl.templateName" placeholder="Enter Template Name"/>
     </div>
+  </br>
  <h3>Add Exercise</h3>
   <div>
     Exercise : <input type="text" ng-model="$ctrl.activity" placeholder="Enter Exercise Name"/>
     Sets :<input type="text" ng-model="$ctrl.sets" placeholder="Enter Sets" />
     Reps :<input type="text" ng-model="$ctrl.reps" placeholder="Enter Reps" />
   </div>
-
 <br/>
-<button type="button" ng-click="$ctrl.addWorkout()">Add Exercise</button>
+<button type="button" class="btn btn-info" ng-click="$ctrl.addWorkout()">Add Exercise</button>
 <br/>
 
 <br/>
 <div>
   <h3>Your Template</h3>
-  <button type="button" ng-click="$ctrl.addTemplate()">Add Template</button>
   <table class="col-md-4">
     <tr>
       <th>Exercise Name
@@ -35,5 +37,9 @@
       </td>
     </tr>
   </table>
+  <button type="button" class="btn btn-success" ng-click="$ctrl.addTemplate()">Add Template</button>
   <br/>
 </div>
+
+ </div>
+
