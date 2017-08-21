@@ -9,3 +9,6 @@ angular.module('sparrowFit')
   controller: 'goalListCtrl',
   templateUrl: 'client/components/goal-component/goallist/goalList.html'
 });
+
+
+
