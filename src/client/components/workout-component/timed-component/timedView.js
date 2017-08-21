@@ -8,9 +8,21 @@ angular.module('sparrowFit')
   //   console.log('For loop runing:',obj[i]);
   //   time.clock('Dance', obj[i]);
   // }
-  var testData = [['Dance', 5], ['Crunches', 2], ['Planks', 4]];
-
-  this.timer.clock(testData);
+  //var testData = [['Dance', 5], ['Break', 5], ['Crunches', 6], ['Break', 5], ['Planks', 4]];
+  // var testData = [];
+  // console.log('Workout', this.workout);
+  // if (this.workout) {
+  //   console.log("Workout: ", this.workout);
+  //   for (var i = 0; i < this.workout.length; i++) {
+  //     var tuple = [this.workout.activity, this.workout.duration];
+  //     testData.push(tuple);
+  //     testData.push(['Break', this.workout.break]);
+  //   }
+  //   console.log('Test Data: ', testData);
+  // }
+  console.log('workout binding: ', this.workout)
+  console.log('timedView timerd: ', this.timerd);
+  this.timer.clock(this.timerd);
 
 
   this.msg = 'Timer is working';
@@ -26,7 +38,9 @@ angular.module('sparrowFit')
 .component('timedView', {
   bindings: {
     workout: '<',
-    data: '<'
+    data: '<',
+    test: '<',
+    timerd: '<'
   },
   controller: 'timedViewCtrl',
   templateUrl: 'client/components/workout-component/timed-component/timedView.html'
