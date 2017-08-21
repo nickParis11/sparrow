@@ -79,7 +79,32 @@ angular // add module dependencies and configure it
         url:'/addGoal',
         parent :'goals',
         component : 'addGoal'
-      });
+      })
+      .state({
+        name :'panel',
+        url:'/panel',
+        parent :'goals',
+        component : 'panel',
+        resolve : {
+          resolvePanel : function (goalService) {
+            return '!!!!! implement me !!!!!';
+          }
+        }
+      })
+      .state({
+        name :'goalList',
+        url:'/goallist',
+        parent :'goals',
+        component :'goalList'
+      })
+      .state({
+        name :'workoutHistory',
+        url:'/workouthistory',
+        parent :'goals',
+        component : 'workoutHistory'
+      })
+
+      ;
 
 
 
