@@ -27,5 +27,4 @@ angular.module('sparrowFit')
     fakeJSON_goals.push(newGoal);
     callBack();
   };
-
 })

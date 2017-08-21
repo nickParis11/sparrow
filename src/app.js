@@ -64,7 +64,7 @@ angular // add module dependencies and configure it
       .state({
         name: 'goal',
         url: '/{goalID}',
-        parent:'goals',
+        parent:'goalList',
         component : 'goal',
         resolve : {
           resolveGoalItem : function (goalService,$transition$) {
@@ -79,7 +79,45 @@ angular // add module dependencies and configure it
         url:'/addGoal',
         parent :'goals',
         component : 'addGoal'
-      });
+      })
+      .state({
+        name :'panel',
+        url:'/panel',
+        parent :'goals',
+        component : 'panel',
+        resolve : {
+          resolvePanel : function (goalService) {
+            return '!!!!! implement me !!!!!';
+          }
+        }
+      })
+      .state({
+        name :'goalList',
+        url:'/goallist',
+        parent :'goals',
+        component :'goalList',
+        resolve : {
+          resolveGoalList : function (goalService) {
+            // move the content of golas/resolve func in here
+            var goals=goalService.getAllGoals();
+            //console.log( goals);
+            return goals;
+          }
+        }
+      })
+      .state({
+        name :'history',
+        url:'/history',
+        parent :'goals',
+        component : 'history',
+        resolve : {
+          resolveHistory : function (goalService) {
+            return '!!!!! implement me !!!!!';
+          }
+        }
+      })
+
+      ;
 
 
 
