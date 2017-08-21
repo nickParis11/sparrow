@@ -19,18 +19,8 @@
   </div>
 </div>
 
-<!-- <div class='happy'>
-    {{$ctrl.timer.clock('Dance', 20)}}
-</div> -->
+<timed-view ng-if="$ctrl.timed" data="$ctrl.workoutData" workout="$ctrl.workout"></timed-view>
 
-<!-- <div>
-    <h1 class="clockname"></h1>
-    <div class="your-clock">What if this?</div>
-    <input class="settime"></input>
-    <button class="timer">
-    Start
-    </button>
-</div> -->
-<timed-view ng-if="$ctrl.timed" data="$ctrl.workoutData" timerd= "$ctrl.timedData" test= "$ctrl.test" workout="$ctrl.workout"></timed-view>
-{{$ctrl.test}}
 <untimed-view ng-if="$ctrl.untimed" data="$ctrl.workoutData" workout="$ctrl.workout"></untimed-view>
+
+

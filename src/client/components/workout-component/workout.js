@@ -19,12 +19,12 @@ angular.module('sparrowFit')
       this.untimed = false;
     }
     console.log('Timed value :', this.timed);
-    for (var i = 0; i < this.workout.length; i++) {
-        var tuple = [this.workout[i].activity, this.workout[i].duration];
-        this.timedData.push(tuple);
-        this.timedData.push(['Break', this.workout[i].break]);
-      }
-    console.log('Test Data: ', this.timedData);
+    // for (var i = 0; i < this.workout.length; i++) {
+    //     var tuple = [this.workout[i].activity, this.workout[i].duration];
+    //     this.timedData.push(tuple);
+    //     this.timedData.push(['Break', this.workout[i].break]);
+    //   }
+    // console.log('Test Data: ', this.timedData);
   };
 
   httpService.getData(this.url, (returnValue) => {
@@ -66,8 +66,6 @@ angular.module('sparrowFit')
   this.getTimedTemps = function getTimedTemps() {
     console.log('hi from getTimedTemps');
     this.showTimed = this.myTimedTemplates;
-
-
   };
 
   this.getUntimedTemps = function getUntimedTemps() {

@@ -10,6 +10,7 @@
       <th>RestTime(sec)
       </th>
     </tr>
+
     <tr ng-repeat="entry in $ctrl.workout">
       <td>{{entry.activity}}
       </td>
@@ -21,8 +22,8 @@
   </table>
   <br/>
 <button ng-click='$ctrl.completed()'>Completed</button>
-{{$ctrl.timerd}} {{test}}
 <!-- <div class='happy'></div> -->
+<button ng-click='$ctrl.get()'>Get Workout</button>
 
 <div style=" float:right">
     <h1 class="clockname"></h1>
