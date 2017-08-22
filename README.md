@@ -25,6 +25,7 @@ Checkout the .env.example file and fill in the following sections to get it runn
 `CLIENT_ID =`
 `AUDIENCE =`
 `SECRET =`
+
 Note: DOMAIN and CLIENT_ID are passed from server to client via get request in *src/app.js*.
 
 ### Step Four: Create Your First Workout
