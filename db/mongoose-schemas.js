@@ -24,7 +24,7 @@ const userSchema = new Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-//workout_id
+
 const templateSchema = new Schema({
   user_id: String,
   templateName: String,
