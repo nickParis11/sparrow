@@ -1,6 +1,11 @@
 <h3>add a goal below </h3>
+
+<h4 ng-if="! $ctrl.showCreateGoal">your goal has been inserted </h4>
+
+<button ng-if="! $ctrl.showCreateGoal" ng-click="$ctrl.toggleCreateGoal()"> INSERT OTHER GOAL</button>
+
 <div>
-   <form  id="form1">
+   <form ng-if="$ctrl.showCreateGoal" id="form1">
 
             enter goal name: <input ng-model="$ctrl.name"><br>
             What is you Goal time frame :
