@@ -28,10 +28,10 @@ app.get('/config', (req, res) => {
 // app.use('/',express.static(path.join(__dirname, '../client')));
 
 // AUTH0
-app.use('/', express.static(path.join(__dirname, '../src')));
-app.use('/application', express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../src')));
+// app.use('/application', express.static(path.join(__dirname, '../client')));
 
-app.get('/api/get/application', (req, res) => {
+app.get('/api/application', (req, res) => {
 });
 
 //HANDLE GET REQUESTS
@@ -48,9 +48,7 @@ app.get('/api/private', authCheck, (req, res) => {
 });
 
 
-
-
-app.get('/api/get/users', function(req, res) {
+app.get('/api/users', function(req, res) {
   var users = [];
   User.find({}, function(err, user) {
     if (err) console.log(err);
@@ -63,7 +61,7 @@ app.get('/api/get/users', function(req, res) {
   });
 });
 
-app.get('/api/get/workout', function(req, res) {
+app.get('/api/workout', function(req, res) {
   var templates = [];
 
   Template.find({}, function(err, template) {
@@ -76,7 +74,8 @@ app.get('/api/get/workout', function(req, res) {
   });
 });
 
-app.get('/api/get/goals', function(req, res) {
+
+app.get('/api/goals', function(req, res) {
   var goals = [];
 
   Goal.find({}, function(err, goal) {
@@ -89,7 +88,7 @@ app.get('/api/get/goals', function(req, res) {
   });
 });
 
-app.get('/api/get/histories', function(req, res) {
+app.get('/api/histories', function(req, res) {
   var histories = [];
 
   History.find({}, function(err, history) {
@@ -105,31 +104,30 @@ app.get('/api/get/histories', function(req, res) {
 
 //HANDLE POST REQUESTS
 
-app.post('/api/post/users', function(req, res) {
+app.post('/api/users', function(req, res) {
   User.create(req.body);
   res.send('Posted User');
 });
 
-app.post('/api/post/workout', function(req, res) {
+app.post('/api/workout', function(req, res) {
   Template.create(req.body);
   res.send('Posted Template');
 });
 
-app.post('/post/goals', function(req, res) {
+app.post('/api/goals', function(req, res) {
   Goal.create(req.body);
   res.send('Posted Goal');
 });
 
-app.post('/api/post/histories', function(req, res) {
+app.post('/api/histories', function(req, res) {
   History.create(req.body);
   res.send('Posted History');
 });
 
-
 //HANDLES SPECIFIC QUERIES
 
 //GET USER BY USER_ID
-app.get('/api/get/users/:id', function(req, res) {
+app.get('/api/users/:id', function(req, res) {
   var ident = req.params.id;
   var user = null;
   User.find({id: ident }, function(err, target) {
@@ -142,7 +140,7 @@ app.get('/api/get/users/:id', function(req, res) {
 });
 
 //GET TEMPLATES BY USER_ID
-app.get('/api/get/workout/:user', function(req, res) {
+app.get('/api/workout/:user', function(req, res) {
   var user = req.params.user;
   var templates = [];
 
@@ -155,8 +153,7 @@ app.get('/api/get/workout/:user', function(req, res) {
   });
 });
 
-
-app.get('/api/get/histories/:user', function(req, res) {
+app.get('/api/histories/:user', function(req, res) {
   var user = req.params.user;
   var histories = [];
 
@@ -169,7 +166,7 @@ app.get('/api/get/histories/:user', function(req, res) {
   });
 });
 
-app.get('/api/get/goals/:user', function(req, res) {
+app.get('/api/goals/:user', function(req, res) {
   var user = req.params.user;
   var goals = [];
 
