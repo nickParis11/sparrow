@@ -27,12 +27,12 @@ angular.module('sparrowFit')
     obj.break = Number(this.break || 0);
     this.workout.push(obj);
   };
-  // `/api/get/workout/${token}`
-  // `/api/get/workout/${this.userId}`
+  // `/api/workout/${token}`
+  // `/api/workout/${this.userId}`
   //addTemplate add template to the database.
   this.sendTemplate = function() {
     this.createData();
-    httpService.sendData('/api/post/workout', this.data);
+    httpService.sendData('/api/workout', this.data);
     console.log('Send present workout to the database via http services',this.data);
   };
 
